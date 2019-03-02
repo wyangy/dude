@@ -27,7 +27,8 @@ class SignUpViewController: UIViewController {
         else{
             Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
                 if error == nil {
-                    self.performSegue(withIdentifier: "signupToHome", sender: self)
+                    print("account created: \(self.email.text!)")
+                    // self.performSegue(withIdentifier: "signupToHome", sender: self)
                 }
                 else{
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)

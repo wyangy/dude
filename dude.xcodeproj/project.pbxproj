@@ -10,13 +10,13 @@
 		2554898B2D2EA10C412FC7FE /* Pods_dudeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E62B83FFCD3DB9781621BF /* Pods_dudeTests.framework */; };
 		6E774FA72EE7CDE6E66C6ACA /* Pods_dude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99E00AD3FB86DD3FFA0144A1 /* Pods_dude.framework */; };
 		A239A2D6222A02F8004227FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239A2D5222A02F8004227FA /* AppDelegate.swift */; };
-		A239A2D8222A02F8004227FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239A2D7222A02F8004227FA /* ViewController.swift */; };
 		A239A2DB222A02F8004227FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A239A2D9222A02F8004227FA /* Main.storyboard */; };
 		A239A2DD222A02F9004227FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A239A2DC222A02F9004227FA /* Assets.xcassets */; };
 		A239A2E0222A02F9004227FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */; };
 		A239A2EB222A02F9004227FA /* dudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239A2EA222A02F9004227FA /* dudeTests.swift */; };
 		A24ADD90222A09B80099554E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24ADD8F222A09B80099554E /* GoogleService-Info.plist */; };
 		A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FD222A8A7600192642 /* SignUpViewController.swift */; };
+		A297A100222A913800192642 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FF222A913800192642 /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		99E00AD3FB86DD3FFA0144A1 /* Pods_dude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A239A2D2222A02F8004227FA /* dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A239A2D5222A02F8004227FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A239A2D7222A02F8004227FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A239A2DA222A02F8004227FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A239A2DC222A02F9004227FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A239A2DF222A02F9004227FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,6 +45,7 @@
 		A239A2EC222A02F9004227FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A24ADD8F222A09B80099554E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A297A0FD222A8A7600192642 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A297A0FF222A913800192642 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		B634FFEEF8274DB1D99F97F3 /* Pods-dudeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dudeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dudeTests/Pods-dudeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E62B83FFCD3DB9781621BF /* Pods_dudeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dudeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				A239A2D5222A02F8004227FA /* AppDelegate.swift */,
-				A239A2D7222A02F8004227FA /* ViewController.swift */,
 				A297A0FD222A8A7600192642 /* SignUpViewController.swift */,
+				A297A0FF222A913800192642 /* LogInViewController.swift */,
 				A239A2D9222A02F8004227FA /* Main.storyboard */,
 				A239A2DC222A02F9004227FA /* Assets.xcassets */,
 				A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */,
@@ -302,8 +302,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A297A100222A913800192642 /* LogInViewController.swift in Sources */,
 				A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */,
-				A239A2D8222A02F8004227FA /* ViewController.swift in Sources */,
 				A239A2D6222A02F8004227FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
