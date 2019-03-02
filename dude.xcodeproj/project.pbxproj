@@ -16,6 +16,7 @@
 		A239A2E0222A02F9004227FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */; };
 		A239A2EB222A02F9004227FA /* dudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239A2EA222A02F9004227FA /* dudeTests.swift */; };
 		A24ADD90222A09B80099554E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24ADD8F222A09B80099554E /* GoogleService-Info.plist */; };
+		A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FD222A8A7600192642 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		A239A2EA222A02F9004227FA /* dudeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dudeTests.swift; sourceTree = "<group>"; };
 		A239A2EC222A02F9004227FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A24ADD8F222A09B80099554E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A297A0FD222A8A7600192642 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B634FFEEF8274DB1D99F97F3 /* Pods-dudeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dudeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dudeTests/Pods-dudeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E62B83FFCD3DB9781621BF /* Pods_dudeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dudeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 			children = (
 				A239A2D5222A02F8004227FA /* AppDelegate.swift */,
 				A239A2D7222A02F8004227FA /* ViewController.swift */,
+				A297A0FD222A8A7600192642 /* SignUpViewController.swift */,
 				A239A2D9222A02F8004227FA /* Main.storyboard */,
 				A239A2DC222A02F9004227FA /* Assets.xcassets */,
 				A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */,
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */,
 				A239A2D8222A02F8004227FA /* ViewController.swift in Sources */,
 				A239A2D6222A02F8004227FA /* AppDelegate.swift in Sources */,
 			);
