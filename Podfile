@@ -9,6 +9,7 @@ target 'dude' do
 
   # Pods for dude
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 
   target 'dudeTests' do
     inherit! :search_paths
