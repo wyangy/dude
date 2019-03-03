@@ -1,25 +1,15 @@
 //
-//  StartViewController.swift
+//  ChatsViewController.swift
 //  dude
 //
-//  Created by Wendy Yang on 2019/3/2.
+//  Created by Wendy Yang on 2019/3/3.
 //  Copyright © 2019 wyangy. All rights reserved.
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 
-class StartViewController: UIViewController {
+class ChatsViewController: UIViewController {
 
-    override func viewDidAppear(_ animated: Bool) { // why viewDidAppear instead of viewDidLoad?
-        super.viewDidAppear(animated)
-        if Auth.auth().currentUser != nil {
-            print("already logged in: \(Auth.auth().currentUser!.email!)")
-             self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

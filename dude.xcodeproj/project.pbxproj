@@ -18,6 +18,7 @@
 		A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FD222A8A7600192642 /* SignUpViewController.swift */; };
 		A297A100222A913800192642 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FF222A913800192642 /* LogInViewController.swift */; };
 		A297A102222A941800192642 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A101222A941800192642 /* StartViewController.swift */; };
+		A2BA1CA4222BCF7800F7F12F /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA1CA3222BCF7800F7F12F /* ChatsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		A297A0FD222A8A7600192642 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A297A0FF222A913800192642 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A297A101222A941800192642 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		A2BA1CA3222BCF7800F7F12F /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		B634FFEEF8274DB1D99F97F3 /* Pods-dudeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dudeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dudeTests/Pods-dudeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E62B83FFCD3DB9781621BF /* Pods_dudeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dudeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,6 +101,7 @@
 				A297A101222A941800192642 /* StartViewController.swift */,
 				A297A0FD222A8A7600192642 /* SignUpViewController.swift */,
 				A297A0FF222A913800192642 /* LogInViewController.swift */,
+				A2BA1CA3222BCF7800F7F12F /* ChatsViewController.swift */,
 				A239A2D9222A02F8004227FA /* Main.storyboard */,
 				A239A2DC222A02F9004227FA /* Assets.xcassets */,
 				A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */,
@@ -307,6 +310,7 @@
 			files = (
 				A297A100222A913800192642 /* LogInViewController.swift in Sources */,
 				A297A102222A941800192642 /* StartViewController.swift in Sources */,
+				A2BA1CA4222BCF7800F7F12F /* ChatsViewController.swift in Sources */,
 				A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */,
 				A239A2D6222A02F8004227FA /* AppDelegate.swift in Sources */,
 			);
