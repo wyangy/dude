@@ -18,7 +18,6 @@ class LogInViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if error == nil{
-//                print("logged in email: \(self.email.text!)")
                 print("\(Auth.auth().currentUser!.email!) has logged in")
                  self.performSegue(withIdentifier: "logInToChats", sender: self)
             }
@@ -32,6 +31,39 @@ class LogInViewController: UIViewController {
         }
     }
     
+    @IBAction func forgotPassword(_ sender: Any) {
+        if self.email.text == "" {
+            let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            present(alertController, animated: true, completion: nil)
+            
+        } else {
+            Auth.auth().sendPasswordReset(withEmail: self.email.text!, completion: { (error) in
+                
+                var title = ""
+                var message = ""
+                
+                if error != nil {
+                    title = "Error!"
+                    message = (error?.localizedDescription)!
+                } else {
+                    title = "Success!"
+                    message = "Password reset email sent to \(self.email.text!)"
+                    print("password reset email sent to \(self.email.text!)")
+                }
+                
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+            })
+        }
+    }
     
     
     
