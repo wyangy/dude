@@ -18,7 +18,8 @@ class LogInViewController: UIViewController {
     @IBAction func logIn(_ sender: Any) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if error == nil{
-                print("logged in email: \(self.email.text!)")
+//                print("logged in email: \(self.email.text!)")
+                print("\(Auth.auth().currentUser!.email!) has logged in")
                  self.performSegue(withIdentifier: "logInToChats", sender: self)
             }
             else{

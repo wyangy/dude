@@ -14,8 +14,24 @@ class ChatsViewController: UIViewController {
 
     @IBOutlet weak var usersTableView: UITableView!
     
+    @IBAction func logOut(_ sender: Any) {
+        do {
+            print("\(Auth.auth().currentUser!.email!) has signed out")
+            try Auth.auth().signOut()
+        }
+        catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initial = storyboard.instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = initial
+    }
+    
     @IBAction func addUser(_ sender: Any) {
         var userEmailTextField: UITextField?
+        
+        
         
         let alertController = UIAlertController(
             title: "Add user",
@@ -62,18 +78,18 @@ class ChatsViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func logOut(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-        }
-        catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initial = storyboard.instantiateInitialViewController()
-        UIApplication.shared.keyWindow?.rootViewController = initial
-    }
+//    @IBAction func logOut(_ sender: Any) {
+//        do {
+//            try Auth.auth().signOut()
+//        }
+//        catch let signOutError as NSError {
+//            print ("Error signing out: %@", signOutError)
+//        }
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let initial = storyboard.instantiateInitialViewController()
+//        UIApplication.shared.keyWindow?.rootViewController = initial
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
