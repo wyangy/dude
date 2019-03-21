@@ -38,7 +38,6 @@
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
                                     <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Q1-Ns-N79"/>
-                                    <segue destination="SbT-TZ-4u7" kind="presentation" identifier="signUpToChats" id="GV5-pb-GwE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -51,6 +50,7 @@
                     <connections>
                         <outlet property="email" destination="tBi-Ua-fpA" id="sus-y1-dyQ"/>
                         <outlet property="password" destination="om0-f4-X9R" id="aNH-Jo-s61"/>
+                        <segue destination="SbT-TZ-4u7" kind="presentation" identifier="signUpToChats" id="gTy-wA-FwT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -71,7 +71,6 @@
                                 <state key="normal" title="LOG IN"/>
                                 <connections>
                                     <action selector="logIn:" destination="RtD-pQ-Dbw" eventType="touchUpInside" id="A5Y-Rj-gp2"/>
-                                    <segue destination="SbT-TZ-4u7" kind="presentation" identifier="logInToChats" id="4YR-zG-yz7"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ePq-Br-vEN">
@@ -95,6 +94,7 @@
                     <connections>
                         <outlet property="email" destination="ePq-Br-vEN" id="epS-Hl-0th"/>
                         <outlet property="password" destination="Rd4-cq-v0a" id="Quo-Rh-br7"/>
+                        <segue destination="SbT-TZ-4u7" kind="presentation" identifier="logInToChats" id="3RX-3M-1Rk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yvs-rk-9fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -247,6 +247,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4YR-zG-yz7"/>
+        <segue reference="ub9-Dr-mdN"/>
     </inferredMetricsTieBreakers>
 </document>

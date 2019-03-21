@@ -18,7 +18,7 @@ class SignUpViewController: UIViewController {
     @IBAction func signUp(_ sender: Any) {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
             if error == nil {
-                print("account created: \(self.email.text!)")
+                print("\(self.email.text!) has signed up")
                  self.performSegue(withIdentifier: "signUpToChats", sender: self)
             }
             else{

@@ -16,7 +16,7 @@ class ChatsViewController: UIViewController {
     
     @IBAction func logOut(_ sender: Any) {
         do {
-            print("\(Auth.auth().currentUser!.email!) is signing out")
+            print("\(Auth.auth().currentUser!.email!) is logging out")
             try Auth.auth().signOut()
         }
         catch let signOutError as NSError {
