@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tBi-Ua-fpA">
-                                <rect key="frame" x="95" y="193" width="97" height="30"/>
+                                <rect key="frame" x="95" y="210" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -50,12 +50,48 @@
                     <connections>
                         <outlet property="email" destination="tBi-Ua-fpA" id="sus-y1-dyQ"/>
                         <outlet property="password" destination="om0-f4-X9R" id="aNH-Jo-s61"/>
-                        <segue destination="SbT-TZ-4u7" kind="presentation" identifier="signUpToChats" id="gTy-wA-FwT"/>
+                        <outlet property="username" destination="FEc-oz-4Un" id="bvd-4m-1U8"/>
+                        <segue destination="nZN-KX-8sE" kind="show" identifier="signUpToProfile" id="fC3-Bk-Fjz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="-1541"/>
+            <point key="canvasLocation" x="1460" y="-1657"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="Pbd-7H-Obf">
+            <objects>
+                <viewController id="nZN-KX-8sE" customClass="ProfileViewController" customModule="dude" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9rV-C8-Wqj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEc-oz-4Un">
+                                <rect key="frame" x="139" y="209" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Sz-HD5">
+                                <rect key="frame" x="160" y="435" width="56" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SUBMIT"/>
+                                <connections>
+                                    <action selector="submit:" destination="nZN-KX-8sE" eventType="touchUpInside" id="DGI-fT-SUC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="7a5-8R-jKr"/>
+                    </view>
+                    <connections>
+                        <outlet property="username" destination="FEc-oz-4Un" id="1RR-s3-zLi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1B5-yY-3uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2231" y="-2041"/>
         </scene>
         <!--Log In View Controller-->
         <scene sceneID="3sX-3X-OuG">
@@ -206,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="-198" y="-711"/>
         </scene>
-        <!--Chatting View Controller-->
+        <!--Chatroom View Controller-->
         <scene sceneID="9Qb-eu-hUC">
             <objects>
-                <viewController id="liL-Lr-hDS" customClass="ChattingViewController" customModule="dude" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="liL-Lr-hDS" customClass="ChatroomViewController" customModule="dude" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NPg-B1-7lI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,8 +289,35 @@
             </objects>
             <point key="canvasLocation" x="2340" y="-664.31784107946032"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="oeP-Pk-CGU">
+            <objects>
+                <tableViewController id="tWd-qh-08Q" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YJr-fB-LiX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="U2r-DU-wm4">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U2r-DU-wm4" id="pxJ-gT-ZaJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tWd-qh-08Q" id="1K9-2t-gYQ"/>
+                            <outlet property="delegate" destination="tWd-qh-08Q" id="4Qe-bH-E4w"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAH-Dp-U1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gTy-wA-FwT"/>
+        <segue reference="ub9-Dr-mdN"/>
     </inferredMetricsTieBreakers>
 </document>

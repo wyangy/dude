@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,12 +14,14 @@
 		A239A2DD222A02F9004227FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A239A2DC222A02F9004227FA /* Assets.xcassets */; };
 		A239A2E0222A02F9004227FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */; };
 		A239A2EB222A02F9004227FA /* dudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239A2EA222A02F9004227FA /* dudeTests.swift */; };
-		A24ACC04222F60660000CD2F /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24ACC03222F60660000CD2F /* ChattingViewController.swift */; };
+		A24ACC04222F60660000CD2F /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24ACC03222F60660000CD2F /* ChatroomViewController.swift */; };
 		A24ADD90222A09B80099554E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24ADD8F222A09B80099554E /* GoogleService-Info.plist */; };
+		A29537F32243C3A100003DED /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29537F22243C3A100003DED /* UsersViewController.swift */; };
 		A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FD222A8A7600192642 /* SignUpViewController.swift */; };
 		A297A100222A913800192642 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A0FF222A913800192642 /* LogInViewController.swift */; };
 		A297A102222A941800192642 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A101222A941800192642 /* StartViewController.swift */; };
 		A2BA1CA4222BCF7800F7F12F /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BA1CA3222BCF7800F7F12F /* ChatsViewController.swift */; };
+		A2F84EF12244F27D0070ADF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +48,15 @@
 		A239A2E6222A02F9004227FA /* dudeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dudeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A239A2EA222A02F9004227FA /* dudeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dudeTests.swift; sourceTree = "<group>"; };
 		A239A2EC222A02F9004227FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A24ACC03222F60660000CD2F /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewController.swift; sourceTree = "<group>"; };
+		A24ACC03222F60660000CD2F /* ChatroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatroomViewController.swift; sourceTree = "<group>"; };
 		A24ADD8F222A09B80099554E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A29537F22243C3A100003DED /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		A29537F42243D66000003DED /* dude.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dude.entitlements; sourceTree = "<group>"; };
 		A297A0FD222A8A7600192642 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A297A0FF222A913800192642 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A297A101222A941800192642 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A2BA1CA3222BCF7800F7F12F /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B634FFEEF8274DB1D99F97F3 /* Pods-dudeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dudeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dudeTests/Pods-dudeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E62B83FFCD3DB9781621BF /* Pods_dudeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dudeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -99,12 +104,15 @@
 		A239A2D4222A02F8004227FA /* dude */ = {
 			isa = PBXGroup;
 			children = (
+				A29537F42243D66000003DED /* dude.entitlements */,
 				A239A2D5222A02F8004227FA /* AppDelegate.swift */,
 				A297A101222A941800192642 /* StartViewController.swift */,
 				A297A0FD222A8A7600192642 /* SignUpViewController.swift */,
+				A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */,
 				A297A0FF222A913800192642 /* LogInViewController.swift */,
 				A2BA1CA3222BCF7800F7F12F /* ChatsViewController.swift */,
-				A24ACC03222F60660000CD2F /* ChattingViewController.swift */,
+				A24ACC03222F60660000CD2F /* ChatroomViewController.swift */,
+				A29537F22243C3A100003DED /* UsersViewController.swift */,
 				A239A2D9222A02F8004227FA /* Main.storyboard */,
 				A239A2DC222A02F9004227FA /* Assets.xcassets */,
 				A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */,
@@ -197,6 +205,11 @@
 					A239A2D1222A02F8004227FA = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					A239A2E5222A02F9004227FA = {
 						CreatedOnToolsVersion = 10.1;
@@ -206,7 +219,7 @@
 				};
 			};
 			buildConfigurationList = A239A2CD222A02F8004227FA /* Build configuration list for PBXProject "dude" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -253,14 +266,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-dude/Pods-dude-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,11 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24ACC04222F60660000CD2F /* ChattingViewController.swift in Sources */,
+				A24ACC04222F60660000CD2F /* ChatroomViewController.swift in Sources */,
 				A297A100222A913800192642 /* LogInViewController.swift in Sources */,
 				A297A102222A941800192642 /* StartViewController.swift in Sources */,
+				A29537F32243C3A100003DED /* UsersViewController.swift in Sources */,
 				A2BA1CA4222BCF7800F7F12F /* ChatsViewController.swift in Sources */,
 				A297A0FE222A8A7600192642 /* SignUpViewController.swift in Sources */,
+				A2F84EF12244F27D0070ADF0 /* ProfileViewController.swift in Sources */,
 				A239A2D6222A02F8004227FA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,8 +497,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -479,13 +507,11 @@
 			baseConfigurationReference = 4B3A021F80B1DCF6B64F6C0C /* Pods-dude.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = dude/dude.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TMTF6H5MF;
 				INFOPLIST_FILE = dude/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudechatforbros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -498,13 +524,11 @@
 			baseConfigurationReference = 647638EC8DE4898EC4004985 /* Pods-dude.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = dude/dude.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TMTF6H5MF;
 				INFOPLIST_FILE = dude/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudechatforbros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -521,11 +545,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TMTF6H5MF;
 				INFOPLIST_FILE = dudeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -543,11 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2TMTF6H5MF;
 				INFOPLIST_FILE = dudeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
