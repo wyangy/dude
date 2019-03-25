@@ -11,44 +11,78 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class ProfileViewController: UIViewController {
-
-    @IBOutlet weak var username: UITextField!
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBAction func submit(_ sender: Any) {
-        let database = Firestore.firestore()
-        
-        database.collection("users").document("\(Auth.auth().currentUser!.uid)").setData([
-            "username": "\(Auth.auth().currentUser!.displayName!)",
-            "email": "\(Auth.auth().currentUser!.email!)",
+    @IBOutlet weak var photo: UIImageView!
+    
+    var imagePicker = UIImagePickerController()
+    
+    @IBAction func selectPhoto(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            print("select photo")
             
-        ]) { err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("User profile created:\(Auth.auth().currentUser!.displayName!), \(Auth.auth().currentUser!.email!)")
-                
-                self.performSegue(withIdentifier: "profileToChat", sender: self)
-            }
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
         }
     }
     
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        photo.image = info[.originalImage] as? UIImage
+        imagePicker.dismiss(animated: true, completion: nil)
+        print("finished picking")
+    } // error appears after this function is called: [discovery] errors encountered while discovering extensions: Error Domain=PlugInKit Code=13 "query cancelled" UserInfo={NSLocalizedDescription=query cancelled
+    
+    
+    @IBOutlet weak var username: UITextField!
+    
+    func uploadPhotoToStorage() {
+        
+    }
+    
+    func savePhotoUrlToUsersInfo() {
+        
+    }
+    
+    @IBAction func submit(_ sender: Any) {
+        
+//        let database = Firestore.firestore()
+//
+//        database.collection("users").document("\(Auth.auth().currentUser!.uid)").setData([
+//            "email": "\(Auth.auth().currentUser!.email!)",
+//            "username": "\(username.text!)",
+//
+//        ]) { (error) in
+//            if error == nil {
+//                print("User profile created: \(Auth.auth().currentUser!.email!), \(database.collection("users").document())")
+//
+////                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
+//            }
+//            else{
+//                print("Error creating user profile: \(error!.localizedDescription)")
+//
+//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
+//            }
+//
+//
+//        }
+        uploadPhotoToStorage()
+        savePhotoUrlToUsersInfo()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
