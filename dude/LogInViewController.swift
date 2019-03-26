@@ -17,11 +17,11 @@ class LogInViewController: UIViewController {
     
     @IBAction func logIn(_ sender: Any) {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
-            if error == nil{
+            if error == nil {
                 print("\(Auth.auth().currentUser!.email!) has logged in")
                  self.performSegue(withIdentifier: "logInToChats", sender: self)
-            }
-            else{
+            } else {
+                print("Error: \((error?.localizedDescription)!)")
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 
@@ -32,27 +32,18 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction func forgotPassword(_ sender: Any) {
-        if self.email.text == "" {
-            let alertController = UIAlertController(title: "Oops!", message: "Please enter an email.", preferredStyle: .alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            
-            present(alertController, animated: true, completion: nil)
-            
-        } else {
-            Auth.auth().sendPasswordReset(withEmail: self.email.text!, completion: { (error) in
+            Auth.auth().sendPasswordReset(withEmail: self.email.text!) { (error) in
+                var title = String()
+                var message = String()
                 
-                var title = ""
-                var message = ""
-                
-                if error != nil {
-                    title = "Error!"
-                    message = (error?.localizedDescription)!
-                } else {
+                if error == nil {
+                    print("password reset email sent to \(self.email.text!)")
                     title = "Success!"
                     message = "Password reset email sent to \(self.email.text!)"
-                    print("password reset email sent to \(self.email.text!)")
+                } else {
+                    print("Error: \((error?.localizedDescription)!)")
+                    title = "Error!"
+                    message = (error?.localizedDescription)!
                 }
                 
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -61,8 +52,7 @@ class LogInViewController: UIViewController {
                 alertController.addAction(defaultAction)
                 
                 self.present(alertController, animated: true, completion: nil)
-            })
-        }
+            }
     }
     
     
