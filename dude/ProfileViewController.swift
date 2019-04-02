@@ -73,8 +73,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         ]) { (error) in
             if error == nil {
                 print("User profile created for uid: \(uid), email: \(email), profilePicUrl: \(profilePicUrl)")
-                
-                //                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
+                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
             } else {
                 print("Error creating user profile: \(error!.localizedDescription)")
                 
