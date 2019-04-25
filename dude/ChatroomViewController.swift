@@ -36,72 +36,44 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         UIApplication.shared.keyWindow?.rootViewController = initial
     }
     
-    @IBOutlet weak var senderProfilePic: UIImageView!
-    
-    @IBOutlet weak var message: UILabel!
-    
-    
-    
-    
     @IBOutlet weak var chatLog: UITableView!
     
-    var chat = [String]()
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
-        print("Swiped Up")
-//        chat += ["🍺"]
-//        chatLog.reloadData()
-        
+        print("Swiped Up: 🍺")
         saveMessage(message: "🍺")
     }
     
     @IBAction func swipeDown(_ sender: UISwipeGestureRecognizer) {
-        print("Swiped Down")
-//        chat += ["💩"]
-//        chatLog.reloadData()
-        
+        print("Swiped Down: 💩")
         saveMessage(message: "💩")
     }
     
     @IBAction func swipeLeft(_ sender: UISwipeGestureRecognizer) {
-        print("Swiped Left")
-//        chat += ["🍕"]
-//        chatLog.reloadData()
-        
+        print("Swiped Left: 🍕")
         saveMessage(message: "🍕")
     }
     
     @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
-        print("Swiped Right")
-//        chat += ["👊"]
-//        chatLog.reloadData()
-        
+        print("Swiped Right: 👊")
         saveMessage(message: "👊")
     }
     
     @IBAction func dude(_ sender: UILongPressGestureRecognizer) {
-        print("Long Tap")
-//        chat += ["DUDE!!!"]
-//        chatLog.reloadData()
-        
+        print("Long Tap: DUDE!!!")
         saveMessage(message: "DUDE!!!")
     }
     
     func loadMessage() {
-//        databaseRef.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snapshot) in
         databaseRef.child("posts").observe(DataEventType.childAdded, with: { (snapshot) in
 
-            // Get user value
             let value = snapshot.value as? NSDictionary
-            print(value!)
             let senderID = value?["senderID"] as! String
             let message = value?["message"] as! String
-//            print(message)
             
             self.posts.append(Post (senderID: senderID, message: message))
             self.chatLog.reloadData()
             
-            // ...
         }) { (error) in
             print("Message could not be loaded: \(error.localizedDescription)")
             
@@ -116,7 +88,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func saveMessage(message: String) {
         
-//        databaseRef.child("posts").childByAutoId().setValue([
         databaseRef.child("posts").child(Date().description).setValue([
             "senderID": Auth.auth().currentUser!.uid,
             "message": message,
@@ -136,7 +107,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return chat.count
         return posts.count
     }
     
@@ -144,8 +114,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-//        cell.textLabel?.text = chat[indexPath.row]
-//        cell.detailTextLabel?.text = "userID"
+
         cell.textLabel?.text = posts[indexPath.row].message
         cell.detailTextLabel?.text = posts[indexPath.row].senderID
         cell.imageView?.image = UIImage(named: "tiki.jpg")
