@@ -9,13 +9,19 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import FirebaseFirestore
+import FirebaseDatabase
 import FirebaseStorage
+
+struct Post {
+    let senderID : String
+    let message : String
+}
 
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-
-    let database = Firestore.firestore()
+    var posts = [Post]()
+    
+    let databaseRef = Database.database().reference()
     
     @IBAction func logOut(_ sender: Any) {
         do {
@@ -45,6 +51,8 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         print("Swiped Up")
         chat += ["🍺"]
         chatLog.reloadData()
+        
+        saveMessage(message: "🍺")
     }
     
     @IBAction func swipeDown(_ sender: UISwipeGestureRecognizer) {
@@ -69,66 +77,64 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         chat += ["DUDE!!!"]
         chatLog.reloadData()
     }
-
-
-
-
-    func saveMessage(senderID: String, message: String) {
-//        let database = Firestore.firestore()
+    
+    
+    
+    
+    func saveMessage(message: String) {
         
-        database.collection("messages").document(Date().description).setData([
-            "senderID": senderID,
+        databaseRef.child("posts").childByAutoId().setValue([
+            "senderID": Auth.auth().currentUser!.uid,
             "message": message,
-        ]) { (error) in
-            if error == nil {
-                print("Message saved for senderID: \(senderID), message: \(message)")
-//                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
-            } else {
-                print("Error saving message: \(error!.localizedDescription)")
+            ]) { (error:Error?, databaseRef:DatabaseReference) in
+            if let error = error {
+                print("Message could not be saved: \(error.localizedDescription)")
                 
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 
                 alertController.addAction(defaultAction)
                 self.present(alertController, animated: true, completion: nil)
+            } else {
+                print("Message saved successfully for senderID: \(Auth.auth().currentUser!.uid), message: \(message)")
             }
         }
-        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return chat.count
-//        return database.collection("messages").count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text = chat[indexPath.row]
+        cell.detailTextLabel?.text = "userID"
         cell.imageView?.image = UIImage(named: "tiki.jpg")
         
-//        var profileImage = cell.viewWithTag(1) as! UIImageView
-//        var messageText = cell.viewWithTag(2) as! UILabel
-//        messageText.text = chat[indexPath.row]
+        //        var profileImage = cell.viewWithTag(1) as! UIImageView
+        //        var messageText = cell.viewWithTag(2) as! UILabel
+        //        messageText.text = chat[indexPath.row]
         
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
 }
