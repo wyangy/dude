@@ -15,6 +15,7 @@ import FirebaseStorage
 struct Post {
     let senderID : String
     let message : String
+    let profilePicUrl : String
 }
 
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -66,12 +67,16 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func loadMessage() {
         databaseRef.child("posts").observe(DataEventType.childAdded, with: { (snapshot) in
-
+            
             let value = snapshot.value as? NSDictionary
             let senderID = value?["senderID"] as! String
             let message = value?["message"] as! String
+            let profilePicUrl = self.getUserProfilePic(senderID: Auth.auth().currentUser!.uid)
+            print("profilePicUrl: \(profilePicUrl)")
             
-            self.posts.append(Post (senderID: senderID, message: message))
+            self.posts.append(Post (senderID: senderID, message: message, profilePicUrl: profilePicUrl))
+            print(self.posts)
+            
             self.chatLog.reloadData()
             
         }) { (error) in
@@ -91,7 +96,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         databaseRef.child("posts").child(Date().description).setValue([
             "senderID": Auth.auth().currentUser!.uid,
             "message": message,
-            ]) { (error:Error?, databaseRef:DatabaseReference) in
+        ]) { (error:Error?, databaseRef:DatabaseReference) in
             if let error = error {
                 print("Message could not be saved: \(error.localizedDescription)")
                 
@@ -114,16 +119,51 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-
+        
         cell.textLabel?.text = posts[indexPath.row].message
         cell.detailTextLabel?.text = posts[indexPath.row].senderID
         cell.imageView?.image = UIImage(named: "tiki.jpg")
+        
+        
+        //            if let data = try? Data(contentsOf: URL(string: self.posts[indexPath.row].profilePicUrl)!) {
+        //                cell.imageView?.image = UIImage(data: data)
+        //            }
+        //            else {
+        //                cell.imageView?.image = UIImage(named: "tiki.jpg")
+        //            }
+        
         
         //        var profileImage = cell.viewWithTag(1) as! UIImageView
         //        var messageText = cell.viewWithTag(2) as! UILabel
         //        messageText.text = chat[indexPath.row]
         
         return cell
+    }
+    
+    func getUserProfilePic(senderID: String) -> String {
+        
+        var url = ""
+        
+        let firestoreRef = Firestore.firestore().collection("users").document(senderID)
+        
+        firestoreRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                url = (document.data()["profilePicUrl"])! as! String
+                print("User profile pic url retrieved \(url)")
+                
+            } else {
+                print("Error retrieving user profile pic URL: \(error!.localizedDescription)")
+                
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        return url
     }
     
     override func viewDidLoad() {
