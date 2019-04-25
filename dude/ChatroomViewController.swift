@@ -69,40 +69,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         chat += ["DUDE!!!"]
         chatLog.reloadData()
     }
-    
-    
-    
-    
-    
-//    @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
-//        switch sender.direction {
-//        case .up:
-//            print("Swiped Up")
-//            chat += ["🍺"]
-//        case .down:
-//            print("Swiped Down")
-//        case .left:
-//            print("Swiped Left")
-//        case .right:
-//            print("Swiped Right")
-//            chat += ["👊"]
-//            chatLog.reloadData()
-//
-//        default:
-//            break
-//        }
-//    }
-    
-    
 
-    
-//    @IBAction func dude(_ sender: Any) {
-//        chat += ["dude"]
-//
-//        //        saveMessage(senderID: Auth.auth().currentUser!.uid, message: "DUDE!!!!")
-//
-//        chatLog.reloadData()
-//    }
+
+
 
     func saveMessage(senderID: String, message: String) {
 //        let database = Firestore.firestore()
@@ -148,23 +117,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let chatRef = Storage.storage().reference().child("chatroom")
-        
-//        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector(("swiped:")))
-//        swipeDown.direction = .down
-//        swipeView.addGestureRecognizer(swipeDown)
-//
-//        let swipeUp = UISwipeGestureRecognizer(target: self, action: Selector(("swiped:")))
-//        swipeUp.direction = .up
-//        swipeView.addGestureRecognizer(swipeUp)
-//
-//        let swipeRight = UISwipeGestureRecognizer(target: self, action: Selector(("swiped:")))
-//        swipeRight.direction = .right
-//        swipeView.addGestureRecognizer(swipeRight)
-//
-//        let swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector(("swiped:")))
-//        swipeLeft.direction = .left
-//        swipeView.addGestureRecognizer(swipeLeft)
     }
     
 
