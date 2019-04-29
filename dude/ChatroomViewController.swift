@@ -38,7 +38,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         UIApplication.shared.keyWindow?.rootViewController = initial
     }
     
-    @IBOutlet weak var chatLog: UITableView!
+    @IBOutlet weak var chatLogTableView: UITableView!
     
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
@@ -81,10 +81,10 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             self.posts.append(Post (senderEmail: senderEmail, message: message))
             //            print(self.posts)
             
-            self.chatLog.reloadData()
+            self.chatLogTableView.reloadData()
             
             let indexPath = NSIndexPath(item: self.posts.count - 1, section: 0)
-            self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            self.chatLogTableView.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             
         }) { (error) in
             print("Message could not be loaded: \(error.localizedDescription)")
@@ -170,8 +170,13 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMessage()
+//        loadMessage() //will not scroll to bottom if called at viewDidLoad after user had logged out then logged in/ signed up
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) { // why viewDidAppear instead of viewDidLoad?
+        super.viewDidAppear(animated)
+        loadMessage()
     }
     
     
