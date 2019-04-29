@@ -19,7 +19,8 @@ class SignUpViewController: UIViewController {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
             if error == nil {
                 print("\(self.email.text!) has signed up")
-                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
+//                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
+                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
             }
             else{
                 print("Error: \((error?.localizedDescription)!)")
