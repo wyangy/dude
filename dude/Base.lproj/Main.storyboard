@@ -105,11 +105,18 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob8-qr-fLh">
-                                        <rect key="frame" x="205" y="377" width="64" height="36"/>
+                                        <rect key="frame" x="205.5" y="377" width="64" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="LOG IN"/>
                                         <connections>
                                             <action selector="logIn:" destination="fst-Rh-bye" eventType="touchUpInside" id="ch3-xu-VNB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SB-h4-GeW">
+                                        <rect key="frame" x="126" y="414" width="123" height="30"/>
+                                        <state key="normal" title="Forgot passowrd?"/>
+                                        <connections>
+                                            <action selector="forgotPassword:" destination="fst-Rh-bye" eventType="touchUpInside" id="pQ1-tJ-B5r"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -117,29 +124,22 @@
                                     <constraint firstItem="om0-f4-X9R" firstAttribute="centerX" secondItem="EOG-9N-Nz0" secondAttribute="centerX" id="NVi-lK-iKl"/>
                                     <constraint firstItem="tBi-Ua-fpA" firstAttribute="centerX" secondItem="om0-f4-X9R" secondAttribute="centerX" id="NYD-66-qv7"/>
                                     <constraint firstItem="om0-f4-X9R" firstAttribute="top" secondItem="tBi-Ua-fpA" secondAttribute="bottom" constant="20.5" id="RSh-Jo-hrT"/>
+                                    <constraint firstItem="0SB-h4-GeW" firstAttribute="centerX" secondItem="om0-f4-X9R" secondAttribute="centerX" id="ha6-5s-dRw"/>
                                     <constraint firstItem="LIe-HY-tDl" firstAttribute="top" secondItem="om0-f4-X9R" secondAttribute="bottom" constant="28.5" id="nYF-db-yu1"/>
                                     <constraint firstItem="ob8-qr-fLh" firstAttribute="trailing" secondItem="om0-f4-X9R" secondAttribute="trailing" id="nrN-pe-q52"/>
                                     <constraint firstItem="ob8-qr-fLh" firstAttribute="top" secondItem="om0-f4-X9R" secondAttribute="bottom" constant="28.5" id="p8X-FU-RZj"/>
                                     <constraint firstItem="LIe-HY-tDl" firstAttribute="leading" secondItem="om0-f4-X9R" secondAttribute="leading" id="poP-Fw-aPS"/>
+                                    <constraint firstItem="0SB-h4-GeW" firstAttribute="top" secondItem="om0-f4-X9R" secondAttribute="bottom" constant="65.5" id="qLo-sP-QRc"/>
                                     <constraint firstItem="om0-f4-X9R" firstAttribute="centerY" secondItem="EOG-9N-Nz0" secondAttribute="centerY" id="uFa-Rl-YeV"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SB-h4-GeW">
-                                <rect key="frame" x="126" y="482" width="123" height="30"/>
-                                <state key="normal" title="Forgot passowrd?"/>
-                                <connections>
-                                    <action selector="forgotPassword:" destination="fst-Rh-bye" eventType="touchUpInside" id="pQ1-tJ-B5r"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0SB-h4-GeW" firstAttribute="centerX" secondItem="om0-f4-X9R" secondAttribute="centerX" id="2An-41-7hw"/>
                             <constraint firstItem="EOG-9N-Nz0" firstAttribute="centerX" secondItem="q2C-Y5-0mI" secondAttribute="centerX" id="NEY-Us-MnB"/>
                             <constraint firstItem="EOG-9N-Nz0" firstAttribute="height" secondItem="ULz-xO-1io" secondAttribute="height" id="Q3l-Un-IVu"/>
                             <constraint firstItem="EOG-9N-Nz0" firstAttribute="centerY" secondItem="q2C-Y5-0mI" secondAttribute="centerY" id="VnU-bT-6a6"/>
                             <constraint firstItem="EOG-9N-Nz0" firstAttribute="width" secondItem="ULz-xO-1io" secondAttribute="width" id="jru-EW-xO4"/>
-                            <constraint firstItem="0SB-h4-GeW" firstAttribute="top" secondItem="om0-f4-X9R" secondAttribute="bottom" constant="69.5" id="psQ-Cg-COr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q2C-Y5-0mI"/>
                     </view>
