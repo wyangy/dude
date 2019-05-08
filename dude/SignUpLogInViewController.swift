@@ -10,10 +10,11 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignUpLogInViewController: UIViewController {
+class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func signUp(_ sender: Any) {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
@@ -71,6 +72,24 @@ class SignUpLogInViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint( x: 0, y: 90), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        scrollView.setContentOffset(CGPoint( x: 0, y: 0), animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        print("potato")
     }
     
     
