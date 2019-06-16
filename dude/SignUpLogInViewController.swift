@@ -14,7 +14,6 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func signUp(_ sender: Any) {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
@@ -81,10 +80,7 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-        print("potato")
     }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) { // why viewDidAppear instead of viewDidLoad?
         super.viewDidAppear(animated)
