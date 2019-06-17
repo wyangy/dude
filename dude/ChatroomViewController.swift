@@ -128,16 +128,30 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = posts[indexPath.row].message
-        cell.detailTextLabel?.text = posts[indexPath.row].senderEmail
-        //        cell.detailTextLabel?.text = posts[indexPath.row].senderID
-        
+//        cell.textLabel?.text = posts[indexPath.row].message
+//        cell.detailTextLabel?.text = posts[indexPath.row].senderEmail
         
         //        cell.imageView?.image = UIImage(named: "tiki.jpg")
         
-        //        var profileImage = cell.viewWithTag(1) as! UIImageView
-        //        var messageText = cell.viewWithTag(2) as! UILabel
-        //        messageText.text = posts[indexPath.row].message
+        let messageText = cell.viewWithTag(1) as! UILabel
+        let senderEmail = cell.viewWithTag(2) as! UILabel
+        let profileImage = cell.viewWithTag(3) as! UIImageView
+        let senderProfileImage = cell.viewWithTag(4) as! UIImageView
+        
+        messageText.text = posts[indexPath.row].message
+        senderEmail.text = posts[indexPath.row].senderEmail
+        
+        if posts[indexPath.row].senderEmail == Auth.auth().currentUser!.email! {
+            messageText.textAlignment = .right
+            senderEmail.textAlignment = .right
+            profileImage.image = nil
+            senderProfileImage.image = UIImage(named: "buzzyBee.jpg")
+        } else {
+            messageText.textAlignment = .left
+            senderEmail.textAlignment = .left
+            senderProfileImage.image = nil
+            profileImage.image = UIImage(named: "tiki.jpg")
+        }
         
         return cell
     }
