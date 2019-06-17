@@ -131,7 +131,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
 //        cell.textLabel?.text = posts[indexPath.row].message
 //        cell.detailTextLabel?.text = posts[indexPath.row].senderEmail
         
-        //        cell.imageView?.image = UIImage(named: "tiki.jpg")
+//        cell.imageView?.image = UIImage(named: "tiki.jpg")
         
         let messageText = cell.viewWithTag(1) as! UILabel
         let senderEmail = cell.viewWithTag(2) as! UILabel
@@ -184,8 +184,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadMessage()
         
+        loadMessage()
+        self.chatLog.rowHeight = 90
     }
     
     
