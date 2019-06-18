@@ -16,6 +16,7 @@
 		A239A2EB222A02F9004227FA /* dudeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A239A2EA222A02F9004227FA /* dudeTests.swift */; };
 		A24ACC04222F60660000CD2F /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24ACC03222F60660000CD2F /* ChatroomViewController.swift */; };
 		A24ADD90222A09B80099554E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24ADD8F222A09B80099554E /* GoogleService-Info.plist */; };
+		A2649C8422B907C2008DC3E7 /* GetProfileImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2649C8322B907C2008DC3E7 /* GetProfileImages.swift */; };
 		A297A102222A941800192642 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A101222A941800192642 /* SignUpLogInViewController.swift */; };
 		A2F84EF12244F27D0070ADF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		A239A2EC222A02F9004227FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A24ACC03222F60660000CD2F /* ChatroomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatroomViewController.swift; sourceTree = "<group>"; };
 		A24ADD8F222A09B80099554E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2649C8322B907C2008DC3E7 /* GetProfileImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileImages.swift; sourceTree = "<group>"; };
 		A29537F42243D66000003DED /* dude.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dude.entitlements; sourceTree = "<group>"; };
 		A297A101222A941800192642 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
 		A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				A297A101222A941800192642 /* SignUpLogInViewController.swift */,
 				A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */,
 				A24ACC03222F60660000CD2F /* ChatroomViewController.swift */,
+				A2649C8322B907C2008DC3E7 /* GetProfileImages.swift */,
 				A239A2D9222A02F8004227FA /* Main.storyboard */,
 				A239A2DC222A02F9004227FA /* Assets.xcassets */,
 				A239A2DE222A02F9004227FA /* LaunchScreen.storyboard */,
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A24ACC04222F60660000CD2F /* ChatroomViewController.swift in Sources */,
+				A2649C8422B907C2008DC3E7 /* GetProfileImages.swift in Sources */,
 				A297A102222A941800192642 /* SignUpLogInViewController.swift in Sources */,
 				A2F84EF12244F27D0070ADF0 /* ProfileViewController.swift in Sources */,
 				A239A2D6222A02F8004227FA /* AppDelegate.swift in Sources */,

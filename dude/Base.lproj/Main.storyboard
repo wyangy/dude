@@ -18,46 +18,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FEc-oz-4Un">
-                                <rect key="frame" x="140" y="551" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Sz-HD5">
-                                <rect key="frame" x="160" y="435" width="56" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Sz-HD5">
+                                <rect key="frame" x="160" y="356" width="56" height="30"/>
                                 <state key="normal" title="SUBMIT"/>
                                 <connections>
                                     <action selector="submit:" destination="nZN-KX-8sE" eventType="touchUpInside" id="DGI-fT-SUC"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-mG-7y5">
-                                <rect key="frame" x="67" y="142" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buzzyBee" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-mG-7y5">
+                                <rect key="frame" x="72.5" y="70.5" width="230" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="517-cz-88M"/>
+                                    <constraint firstAttribute="height" constant="230" id="PI3-Uw-Ven"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-aQ-wBX">
-                                <rect key="frame" x="145" y="385" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-aQ-wBX">
+                                <rect key="frame" x="145" y="318" width="86" height="30"/>
                                 <state key="normal" title="select photo"/>
                                 <connections>
                                     <action selector="selectPhoto:" destination="nZN-KX-8sE" eventType="touchUpInside" id="wuV-OJ-oo9"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="7YV-WH-OAq"/>
+                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="top" secondItem="tXY-mG-7y5" secondAttribute="bottom" constant="28" id="OWW-5P-5T8"/>
+                            <constraint firstItem="O2i-Sz-HD5" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="QLf-jJ-Qsc"/>
+                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="centerY" secondItem="7a5-8R-jKr" secondAttribute="centerY" id="WTQ-Xn-hqN"/>
+                            <constraint firstItem="O2i-Sz-HD5" firstAttribute="top" secondItem="hZg-aQ-wBX" secondAttribute="bottom" constant="8" id="Z7d-cZ-Xs6"/>
+                            <constraint firstItem="tXY-mG-7y5" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="dDa-QI-oGh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7a5-8R-jKr"/>
                     </view>
                     <connections>
                         <outlet property="photo" destination="tXY-mG-7y5" id="HDZ-LN-hKA"/>
-                        <outlet property="username" destination="FEc-oz-4Un" id="1RR-s3-zLi"/>
                         <segue destination="liL-Lr-hDS" kind="presentation" identifier="signUpToChatroom" id="OmA-0y-Kn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1B5-yY-3uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2231" y="-2041"/>
+            <point key="canvasLocation" x="2735" y="-2010"/>
         </scene>
         <!--Sign Up Log In View Controller-->
         <scene sceneID="htA-Bl-3ab">
@@ -137,7 +138,7 @@
                         <outlet property="email" destination="tBi-Ua-fpA" id="J9l-2L-iPz"/>
                         <outlet property="password" destination="om0-f4-X9R" id="a6d-UW-Gm9"/>
                         <segue destination="liL-Lr-hDS" kind="presentation" identifier="alreadyLoggedIn" id="hig-tr-V44"/>
-                        <segue destination="liL-Lr-hDS" kind="presentation" identifier="logInSignUpToChatroom" id="vhn-8e-NQq"/>
+                        <segue destination="nZN-KX-8sE" kind="presentation" identifier="signUpToProfile" id="Dkb-jY-I1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ld9-SP-fad" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,7 +159,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKi-72-PtX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-198" y="-711"/>
+            <point key="canvasLocation" x="-150" y="-1119"/>
         </scene>
         <!--Chatroom View Controller-->
         <scene sceneID="9Qb-eu-hUC">
@@ -241,6 +242,11 @@
                                         <barButtonItem key="leftBarButtonItem" title="Log out" id="MIr-gh-i0n">
                                             <connections>
                                                 <action selector="logOut:" destination="liL-Lr-hDS" id="kem-yg-i2f"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="eYD-Od-ZHN">
+                                            <connections>
+                                                <segue destination="nZN-KX-8sE" kind="show" id="yWM-AD-ak9"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -368,10 +374,14 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2332" y="-1260.7196401799101"/>
+            <point key="canvasLocation" x="1729" y="-1118"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buzzyBee" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vhn-8e-NQq"/>
+        <segue reference="OmA-0y-Kn2"/>
+        <segue reference="yWM-AD-ak9"/>
     </inferredMetricsTieBreakers>
 </document>

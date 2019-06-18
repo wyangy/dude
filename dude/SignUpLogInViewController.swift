@@ -19,8 +19,8 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
             if error == nil {
                 print("\(self.email.text!) has signed up")
-                //                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
-                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
+                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
+//                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
             }
             else{
                 print("Error: \((error?.localizedDescription)!)")
@@ -89,14 +89,6 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
             self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
         }
         navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .portrait
-//        } else {
-//            return .all
-//        }
     }
     
     override func viewDidLoad() {
