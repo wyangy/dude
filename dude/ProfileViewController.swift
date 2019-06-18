@@ -37,8 +37,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     } // error appears after this function is called: [discovery] errors encountered while discovering extensions: Error Domain=PlugInKit Code=13 "query cancelled" UserInfo={NSLocalizedDescription=query cancelled
     
     
-    @IBOutlet weak var username: UITextField!
-    
     func uploadPhotoToStorage() {
        
             let data = photo.image!.jpegData(compressionQuality: 0.1)!
@@ -84,6 +82,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 self.present(alertController, animated: true, completion: nil)
             }
         }
+    }
+    
+    @IBAction func cancel(_ segue: UIStoryboardSegue) {
     }
     
     @IBAction func submit(_ sender: Any) {
