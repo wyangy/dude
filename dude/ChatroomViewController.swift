@@ -136,7 +136,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         let messageText = cell.viewWithTag(1) as! UILabel
         let senderEmail = cell.viewWithTag(2) as! UILabel
         let profileImage = cell.viewWithTag(3) as! UIImageView
-        let senderProfileImage = cell.viewWithTag(4) as! UIImageView
+        let currentUsersProfileImage = cell.viewWithTag(4) as! UIImageView
         
         messageText.text = posts[indexPath.row].message
         senderEmail.text = posts[indexPath.row].senderEmail
@@ -145,12 +145,18 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             messageText.textAlignment = .right
             senderEmail.textAlignment = .right
             profileImage.image = nil
-            senderProfileImage.image = UIImage(named: "buzzyBee.jpg")
+            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
         } else {
             messageText.textAlignment = .left
             senderEmail.textAlignment = .left
-            senderProfileImage.image = nil
+            currentUsersProfileImage.image = nil
             profileImage.image = UIImage(named: "tiki.jpg")
+            
+//            if profileImage.image != nil {
+//                profileImage.image = UIImage(named: "userImage.jpg")
+//            } else {
+//                profileImage.image = UIImage(named: "tiki.jpg")
+//            }
         }
         
         return cell
