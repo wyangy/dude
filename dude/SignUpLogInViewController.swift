@@ -19,6 +19,9 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (user, error) in
             if error == nil {
                 print("\(self.email.text!) has signed up")
+                
+                self.saveUsersInfo(uid: Auth.auth().currentUser!.uid, email: Auth.auth().currentUser!.email!, profilePicUrl: "")
+                
                 self.performSegue(withIdentifier: "signUpToProfile", sender: self)
 //                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
             }
@@ -70,6 +73,29 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
             alertController.addAction(defaultAction)
             
             self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    func saveUsersInfo(uid: String, email: String, profilePicUrl: String) {
+        let database = Firestore.firestore()
+        
+        database.collection("users").document(uid).setData([
+            "email": email,
+            "profilePicUrl": profilePicUrl,
+        ]) { (error) in
+            if error == nil {
+                print("User profile created for uid: \(uid), email: \(email), profilePicUrl: \(profilePicUrl)")
+//                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
+//                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
+            } else {
+                print("Error creating user profile: \(error!.localizedDescription)")
+                
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
     }
     

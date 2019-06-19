@@ -138,7 +138,8 @@
                         <outlet property="email" destination="tBi-Ua-fpA" id="J9l-2L-iPz"/>
                         <outlet property="password" destination="om0-f4-X9R" id="a6d-UW-Gm9"/>
                         <segue destination="liL-Lr-hDS" kind="presentation" identifier="alreadyLoggedIn" id="hig-tr-V44"/>
-                        <segue destination="nZN-KX-8sE" kind="presentation" identifier="signUpToProfile" id="Dkb-jY-I1r"/>
+                        <segue destination="nZN-KX-8sE" kind="show" identifier="signUpToProfile" id="Dkb-jY-I1r"/>
+                        <segue destination="liL-Lr-hDS" kind="presentation" identifier="logInSignUpToChatroom" id="48s-Bj-bvq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ld9-SP-fad" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -365,7 +366,7 @@
         <image name="buzzyBee" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OmA-0y-Kn2"/>
-        <segue reference="yWM-AD-ak9"/>
+        <segue reference="48s-Bj-bvq"/>
+        <segue reference="Dkb-jY-I1r"/>
     </inferredMetricsTieBreakers>
 </document>
