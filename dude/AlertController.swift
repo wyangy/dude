@@ -1,5 +1,5 @@
 //
-//  showAlert.swift
+//  AlertController.swift
 //  dude
 //
 //  Created by Wendy Yang on 2019/8/30.
