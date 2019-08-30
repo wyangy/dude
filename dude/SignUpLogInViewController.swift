@@ -20,12 +20,10 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
             if error == nil {
                 print("\(self.email.text!) has signed up")
                 
-//                self.saveUsersInfo(uid: Auth.auth().currentUser!.uid, email: Auth.auth().currentUser!.email!, profilePicUrl: "")
-                
                 self.saveUsersInfo(email: Auth.auth().currentUser!.email!, profilePicUrl: "")
                 
                 self.performSegue(withIdentifier: "signUpToProfile", sender: self)
-//                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
+                //                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
             }
             else{
                 self.showAlert(title: "Error", message: error!.localizedDescription)
@@ -55,28 +53,10 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    func saveUsersInfo(uid: String, email: String, profilePicUrl: String) {
-//        let database = Firestore.firestore()
-//
-//        database.collection("users").document(uid).setData([
-//            "email": email,
-//            "profilePicUrl": profilePicUrl,
-//        ]) { (error) in
-//            if error == nil {
-//                print("User profile created for uid: \(uid), email: \(email), profilePicUrl: \(profilePicUrl)")
-////                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
-////                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
-//            } else {
-//                self.showAlert(title: "Error", message: error!.localizedDescription)
-//            }
-//        }
-//    }
-    
     func saveUsersInfo(email: String, profilePicUrl: String) {
         let database = Firestore.firestore()
         
         database.collection("users").document(email).setData([
-//            "email": email,
             "profilePicUrl": profilePicUrl,
         ]) { (error) in
             if error == nil {

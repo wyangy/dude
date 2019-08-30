@@ -13,28 +13,13 @@ import FirebaseDatabase
 import FirebaseStorage
 
 struct Post {
-//        let senderID : String //for matching senders
-    let senderEmail : String //for display
+    let senderEmail : String
     let message : String
-    //    let profilePicUrl : String
 }
-
-//struct Sender {
-//        let senderID : String
-////    let senderEmail : String
-////    let profilePicUrl : String
-//    let profileImage : UIImage
-//}
-
-//var senderProfileImageDict: [String: UIImage] = [:]
 
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-//    var session: URLSession!
-    
     var posts = [Post]()
-//    var senders = [Sender]()
-    
     var sendersDictionary: [String : UIImage] = [:]
     
     let databaseRef = Database.database().reference()
@@ -53,7 +38,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBOutlet weak var chatLog: UITableView!
-    
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
         print("Swiped Up: 🍺")
@@ -84,22 +68,17 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         databaseRef.child("posts").observe(DataEventType.childAdded, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
-//            let senderID = value?["senderID"] as! String
             let senderEmail = value?["senderEmail"] as! String
             let message = value?["message"] as! String
-            //            let profilePicUrl = self.getUserProfilePic(senderID: Auth.auth().currentUser!.uid)
-            //            print("profilePicUrl: \(profilePicUrl)")
             
-            
-            //            self.posts.append(Post (senderID: senderID, message: message, profilePicUrl: profilePicUrl))
             self.posts.append(Post (senderEmail: senderEmail, message: message))
             //            print(self.posts)
             
-//            for index in 0..<self.posts.count {
-////                if self.senders[index].senderID == "" {
-////                    self.getProfileImage(senderID: senderID)
-////                }
-//            }
+            //            for index in 0..<self.posts.count {
+            ////                if self.senders[index].senderID == "" {
+            ////                    self.getProfileImage(senderID: senderID)
+            ////                }
+            //            }
             
             self.getProfileImage(email: senderEmail)
             
@@ -124,7 +103,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
             } else {
                 print("Message saved successfully for senderEmail: \(Auth.auth().currentUser!.email!), message: \(message)")
-                //                print("Message saved successfully for senderID: \(Auth.auth().currentUser!.uid), message: \(message)")
             }
         }
     }
@@ -137,10 +115,10 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-//        cell.textLabel?.text = posts[indexPath.row].message
-//        cell.detailTextLabel?.text = posts[indexPath.row].senderEmail
+        //        cell.textLabel?.text = posts[indexPath.row].message
+        //        cell.detailTextLabel?.text = posts[indexPath.row].senderEmail
         
-//        cell.imageView?.image = UIImage(named: "tiki.jpg")
+        //        cell.imageView?.image = UIImage(named: "tiki.jpg")
         
         let messageText = cell.viewWithTag(1) as! UILabel
         let senderEmail = cell.viewWithTag(2) as! UILabel
@@ -154,7 +132,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             messageText.textAlignment = .right
             senderEmail.textAlignment = .right
             profileImage.image = nil
-//            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
+            //            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
             
             currentUsersProfileImage.image = sendersDictionary[Auth.auth().currentUser!.email!]
         } else {
@@ -163,32 +141,15 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             currentUsersProfileImage.image = nil
             profileImage.image = UIImage(named: "tiki.jpg")
             
-//            if profileImage.image != nil {
-//                profileImage.image = UIImage(named: "userImage.jpg")
-//            } else {
-//                profileImage.image = UIImage(named: "tiki.jpg")
-//            }
+            //            if profileImage.image != nil {
+            //                profileImage.image = UIImage(named: "userImage.jpg")
+            //            } else {
+            //                profileImage.image = UIImage(named: "tiki.jpg")
+            //            }
         }
         
         return cell
     }
-    
-//    func saveProfileImage(profilePicUrl: String) {
-////        senderProfileImageDict["senderEmail"] = UIImage(named: "tiki.jpg")
-////        print(senderProfileImageDict)
-//
-//        session!.dataTask(with: URL(string: profilePicUrl)!) { (data, response, error) in
-//            if error == nil {
-//                DispatchQueue.main.async {
-////                    self.trainer[index].image = UIImage(data: data!)
-////                    self.refreshControl.endRefreshing()
-//                    senderProfileImageDict[profilePicUrl] = UIImage(named: "tiki.jpg")
-//                }
-//            } else {
-//                self.showAlert(title: "Error", message: error!.localizedDescription)
-//            }
-//            }.resume()
-//    }
     
     func getProfileImage(email: String) {
         
@@ -198,27 +159,12 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             if let document = document, document.exists {
                 
                 let url = (document.data()["profilePicUrl"])! as! String
-//                print(url)
-//                let url = document.data()["profilePicUrl"] as! URL
-//                print("User profile pic url retrieved \(url)")
                 
-//                self.saveProfileImage(profilePicUrl: url)
-                
-//                (with: URL(string: profilePicUrl)!)
-                    URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
+                URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
                         DispatchQueue.main.async {
-                            //                    self.trainer[index].image = UIImage(data: data!)
-                            //                    self.refreshControl.endRefreshing()
-//                            senderProfileImageDict[profilePicUrl] = UIImage(named: "tiki.jpg")
-                            
-                            //save profile image to sender struct
-//                            self.trainer[index].image = UIImage(data: data!)
-                            
-//                            self.senders.append(Sender (senderID: senderID, profileImage: UIImage(data: data!)!))
                             
                             self.sendersDictionary[email] = UIImage(data: data!)
-//                            print(self.sendersDictionary)
                         }
                     } else {
                         self.showAlert(title: "Error", message: error!.localizedDescription)
@@ -237,22 +183,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         loadMessage()
         self.chatLog.rowHeight = 90
-        
-//        saveSenderProfileImageToDict()
     }
-    
-    
-    /*
-     // MARK: - Get Profile Images
-          
-     struct Sender {
-     let UID : String
-     let Email : String
-     let profilePicUrl : String
-     var profileImage: UIImage?
-     }
-     
-     */
-    
     
 }
