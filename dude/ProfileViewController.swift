@@ -51,13 +51,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.saveUsersInfo(uid: Auth.auth().currentUser!.uid, email: Auth.auth().currentUser!.email!, profilePicUrl: metadata!.downloadURL()!.absoluteString)
                     
                 } else {
-//                    print("Error: \(error!.localizedDescription)")
-//
-//                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//
-//                    alertController.addAction(defaultAction)
-//                    self.present(alertController, animated: true, completion: nil)
                     self.showAlert(title: "Error", message: error!.localizedDescription)
                 }
             }
@@ -74,13 +67,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("User profile created for uid: \(uid), email: \(email), profilePicUrl: \(profilePicUrl)")
                 self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
             } else {
-//                print("Error creating user profile: \(error!.localizedDescription)")
-//
-//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//
-//                alertController.addAction(defaultAction)
-//                self.present(alertController, animated: true, completion: nil)
                 self.showAlert(title: "Error", message: error!.localizedDescription)
             }
         }
@@ -93,13 +79,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if photo.image != nil {
             uploadPhotoToStorage()
         } else {
-//            print("Please select a profile picture.")
-//            let alertController = UIAlertController(title: "No image selected", message: "Please select a profile picture.", preferredStyle: .alert)
-//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//
-//            alertController.addAction(defaultAction)
-//            self.present(alertController, animated: true, completion: nil)
-            
             self.showAlert(title: "No image selected", message: "Please select a profile picture.")
         }
     }

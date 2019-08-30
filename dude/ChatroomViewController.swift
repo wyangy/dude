@@ -98,14 +98,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             
         }) { (error) in
-//            print("Message could not be loaded: \(error.localizedDescription)")
-//
-//            let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//
-//            alertController.addAction(defaultAction)
-//            self.present(alertController, animated: true, completion: nil)
-            
             self.showAlert(title: "Message could not be loaded", message: error.localizedDescription)
         }
     }
@@ -118,14 +110,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             "message": message,
         ]) { (error:Error?, databaseRef:DatabaseReference) in
             if let error = error {
-//                print("Message could not be saved: \(error.localizedDescription)")
-//
-//                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//
-//                alertController.addAction(defaultAction)
-//                self.present(alertController, animated: true, completion: nil)
-                
                 self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
             } else {
                 print("Message saved successfully for senderEmail: \(Auth.auth().currentUser!.email!), message: \(message)")
@@ -188,11 +172,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                     senderProfileImageDict[profilePicUrl] = UIImage(named: "tiki.jpg")
                 }
             } else {
-//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//
-//                alertController.addAction(defaultAction)
-//                self.present(alertController, animated: true, completion: nil)
                 self.showAlert(title: "Error", message: error!.localizedDescription)
             }
             }.resume()
@@ -211,14 +190,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                     self.saveProfileImage(profilePicUrl: url)
     
                 } else {
-//                    print("Error retrieving user profile pic URL: \(error!.localizedDescription)")
-//    
-//                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//    
-//                    alertController.addAction(defaultAction)
-//                    self.present(alertController, animated: true, completion: nil)
-                    
                     self.showAlert(title: "Error retrieving user profile pic URL", message: error!.localizedDescription)
                 }
             }
