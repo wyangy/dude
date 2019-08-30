@@ -26,12 +26,14 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
 //                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
             }
             else{
-                print("Error: \((error?.localizedDescription)!)")
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//                print("Error: \((error?.localizedDescription)!)")
+//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
                 
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.showAlert(title: "Error", message: error!.localizedDescription)
             }
         }
     }
@@ -42,37 +44,43 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
                 print("\(Auth.auth().currentUser!.email!) has logged in")
                 self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
             } else {
-                print("Error: \((error?.localizedDescription)!)")
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//                print("Error: \((error?.localizedDescription)!)")
+//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
                 
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.showAlert(title: "Error", message: error!.localizedDescription)
             }
         }
     }
     
     @IBAction func forgotPassword(_ sender: Any) {
         Auth.auth().sendPasswordReset(withEmail: self.email.text!) { (error) in
-            var title = String()
-            var message = String()
+//            var title = String()
+//            var message = String()
             
             if error == nil {
-                print("password reset email sent to \(self.email.text!)")
-                title = "Success!"
-                message = "Password reset email sent to \(self.email.text!)"
+//                print("password reset email sent to \(self.email.text!)")
+//                title = "Success!"
+//                message = "Password reset email sent to \(self.email.text!)"
+                
+                self.showAlert(title: "Success!", message: "Password reset email sent to \(self.email.text!)")
             } else {
-                print("Error: \((error?.localizedDescription)!)")
-                title = "Error!"
-                message = (error?.localizedDescription)!
+//                print("Error: \((error?.localizedDescription)!)")
+//                title = "Error!"
+//                message = (error?.localizedDescription)!
+                
+                self.showAlert(title: "Error", message: error!.localizedDescription)
             }
             
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alertController.addAction(defaultAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+//            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//
+//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//            alertController.addAction(defaultAction)
+//
+//            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -88,13 +96,17 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
 //                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
 //                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
             } else {
-                print("Error creating user profile: \(error!.localizedDescription)")
+//                print("Error creating user profile: \(error!.localizedDescription)")
+//
+//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
                 
-                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                self.showAlert(title: "Error", message: error!.localizedDescription)
                 
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
+                
             }
         }
     }

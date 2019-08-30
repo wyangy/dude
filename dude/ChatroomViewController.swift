@@ -19,7 +19,18 @@ struct Post {
     //    let profilePicUrl : String
 }
 
+struct Sender {
+    //    let senderID : String
+    let senderEmail : String
+    let profilePicUrl : String
+    let profileImage : UIImage
+}
+
+var senderProfileImageDict: [String: UIImage] = [:]
+
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var session: URLSession!
     
     var posts = [Post]()
     
@@ -87,16 +98,17 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             
         }) { (error) in
-            print("Message could not be loaded: \(error.localizedDescription)")
+//            print("Message could not be loaded: \(error.localizedDescription)")
+//
+//            let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//            alertController.addAction(defaultAction)
+//            self.present(alertController, animated: true, completion: nil)
             
-            let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
-            alertController.addAction(defaultAction)
-            self.present(alertController, animated: true, completion: nil)
+            self.showAlert(title: "Message could not be loaded", message: error.localizedDescription)
         }
     }
-    
     
     func saveMessage(message: String) {
         
@@ -106,13 +118,15 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             "message": message,
         ]) { (error:Error?, databaseRef:DatabaseReference) in
             if let error = error {
-                print("Message could not be saved: \(error.localizedDescription)")
+//                print("Message could not be saved: \(error.localizedDescription)")
+//
+//                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
                 
-                let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                
-                alertController.addAction(defaultAction)
-                self.present(alertController, animated: true, completion: nil)
+                self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
             } else {
                 print("Message saved successfully for senderEmail: \(Auth.auth().currentUser!.email!), message: \(message)")
                 //                print("Message saved successfully for senderID: \(Auth.auth().currentUser!.uid), message: \(message)")
@@ -162,48 +176,75 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
-    //    func getUserProfilePic(senderID: String) -> String {
-    //
-    //        var url = ""
-    //
-    //        let firestoreRef = Firestore.firestore().collection("users").document(senderID)
-    //
-    //        firestoreRef.getDocument { (document, error) in
-    //            if let document = document, document.exists {
-    //
-    //                url = (document.data()["profilePicUrl"])! as! String
-    //                print("User profile pic url retrieved \(url)")
-    //
-    //            } else {
-    //                print("Error retrieving user profile pic URL: \(error!.localizedDescription)")
-    //
-    //                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-    //                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-    //
-    //                alertController.addAction(defaultAction)
-    //                self.present(alertController, animated: true, completion: nil)
-    //            }
-    //        }
-    //
-    //        return url
-    //    }
+    func saveProfileImage(profilePicUrl: String) {
+//        senderProfileImageDict["senderEmail"] = UIImage(named: "tiki.jpg")
+//        print(senderProfileImageDict)
+        
+        session!.dataTask(with: URL(string: profilePicUrl)!) { (data, response, error) in
+            if error == nil {
+                DispatchQueue.main.async {
+//                    self.trainer[index].image = UIImage(data: data!)
+//                    self.refreshControl.endRefreshing()
+                    senderProfileImageDict[profilePicUrl] = UIImage(named: "tiki.jpg")
+                }
+            } else {
+//                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                alertController.addAction(defaultAction)
+//                self.present(alertController, animated: true, completion: nil)
+                self.showAlert(title: "Error", message: error!.localizedDescription)
+            }
+            }.resume()
+    }
+    
+        func getProfileImage(senderID: String) {
+        
+            let firestoreRef = Firestore.firestore().collection("users").document(senderID)
+    
+            firestoreRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+    
+                    let url = (document.data()["profilePicUrl"])! as! String
+                    print("User profile pic url retrieved \(url)")
+                    
+                    self.saveProfileImage(profilePicUrl: url)
+    
+                } else {
+//                    print("Error retrieving user profile pic URL: \(error!.localizedDescription)")
+//    
+//                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//    
+//                    alertController.addAction(defaultAction)
+//                    self.present(alertController, animated: true, completion: nil)
+                    
+                    self.showAlert(title: "Error retrieving user profile pic URL", message: error!.localizedDescription)
+                }
+            }
+    
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadMessage()
         self.chatLog.rowHeight = 90
+        
+//        saveSenderProfileImageToDict()
     }
     
     
     /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+     // MARK: - Get Profile Images
+          
+     struct Sender {
+     let UID : String
+     let Email : String
+     let profilePicUrl : String
+     var profileImage: UIImage?
      }
+     
      */
     
     
