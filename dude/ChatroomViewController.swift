@@ -19,12 +19,12 @@ struct Post {
     //    let profilePicUrl : String
 }
 
-struct Sender {
-        let senderID : String
-//    let senderEmail : String
-//    let profilePicUrl : String
-    let profileImage : UIImage
-}
+//struct Sender {
+//        let senderID : String
+////    let senderEmail : String
+////    let profilePicUrl : String
+//    let profileImage : UIImage
+//}
 
 //var senderProfileImageDict: [String: UIImage] = [:]
 
@@ -33,7 +33,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
 //    var session: URLSession!
     
     var posts = [Post]()
-    var senders = [Sender]()
+//    var senders = [Sender]()
     
     var sendersDictionary: [String : UIImage] = [:]
     
@@ -95,11 +95,13 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             self.posts.append(Post (senderEmail: senderEmail, message: message))
             //            print(self.posts)
             
-            for index in 0..<self.posts.count {
-//                if self.senders[index].senderID == "" {
-//                    self.getProfileImage(senderID: senderID)
-//                }
-            }
+//            for index in 0..<self.posts.count {
+////                if self.senders[index].senderID == "" {
+////                    self.getProfileImage(senderID: senderID)
+////                }
+//            }
+            
+            self.getProfileImage(email: senderEmail)
             
             self.chatLog.reloadData()
             
@@ -152,7 +154,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             messageText.textAlignment = .right
             senderEmail.textAlignment = .right
             profileImage.image = nil
-            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
+//            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
+            
+            currentUsersProfileImage.image = sendersDictionary[Auth.auth().currentUser!.email!]
         } else {
             messageText.textAlignment = .left
             senderEmail.textAlignment = .left
@@ -188,18 +192,20 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func getProfileImage(email: String) {
         
-        let firestoreRef = Firestore.firestore().collection("users").document(senderID)
+        let firestoreRef = Firestore.firestore().collection("users").document(email)
         
         firestoreRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 
-//                let url = (document.data()["profilePicUrl"])! as! String
-                let url = document.data()["profilePicUrl"] as! URL
+                let url = (document.data()["profilePicUrl"])! as! String
+//                print(url)
+//                let url = document.data()["profilePicUrl"] as! URL
 //                print("User profile pic url retrieved \(url)")
                 
 //                self.saveProfileImage(profilePicUrl: url)
                 
-                    URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                (with: URL(string: profilePicUrl)!)
+                    URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
                         DispatchQueue.main.async {
                             //                    self.trainer[index].image = UIImage(data: data!)
@@ -211,9 +217,8 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                             
 //                            self.senders.append(Sender (senderID: senderID, profileImage: UIImage(data: data!)!))
                             
-                            self.sendersDictionary[senderID] = UIImage(data: data!)
-                            
-//                            stringsAsInts["three"] = 3
+                            self.sendersDictionary[email] = UIImage(data: data!)
+//                            print(self.sendersDictionary)
                         }
                     } else {
                         self.showAlert(title: "Error", message: error!.localizedDescription)
