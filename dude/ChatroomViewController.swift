@@ -80,12 +80,21 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             ////                }
             //            }
             
+           
+            
+            
             self.getProfileImage(email: senderEmail)
             
-            self.chatLog.reloadData()
             
-            let indexPath = NSIndexPath(item: self.posts.count - 1, section: 0)
-            self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            DispatchQueue.main.async {
+               
+                self.chatLog.reloadData()
+                let indexPath = NSIndexPath(item: self.posts.count - 1, section: 0)
+                self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            }
+            
+            
+            
             
         }) { (error) in
             self.showAlert(title: "Message could not be loaded", message: error.localizedDescription)
@@ -134,18 +143,25 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             profileImage.image = nil
             //            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
             
-            currentUsersProfileImage.image = sendersDictionary[Auth.auth().currentUser!.email!]
+//            currentUsersProfileImage.image = sendersDictionary[Auth.auth().currentUser!.email!]
+            
+            if currentUsersProfileImage.image != nil {
+                currentUsersProfileImage.image = sendersDictionary[posts[indexPath.row].senderEmail]
+            } else {
+                currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
+            }
+            
         } else {
             messageText.textAlignment = .left
             senderEmail.textAlignment = .left
             currentUsersProfileImage.image = nil
-            profileImage.image = UIImage(named: "tiki.jpg")
+//            profileImage.image = UIImage(named: "tiki.jpg")
             
-            //            if profileImage.image != nil {
-            //                profileImage.image = UIImage(named: "userImage.jpg")
-            //            } else {
-            //                profileImage.image = UIImage(named: "tiki.jpg")
-            //            }
+            if profileImage.image != nil {
+                profileImage.image = sendersDictionary[posts[indexPath.row].senderEmail]
+            } else {
+                profileImage.image = UIImage(named: "tiki.jpg")
+            }
         }
         
         return cell
@@ -162,9 +178,18 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 
                 URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
+                        
+                        
+                        self.sendersDictionary[email] = UIImage(data: data!)
+                        print("Profile image downloaded for \(email)")
+                        
+//                        if  self.sendersDictionary[email] !=  self.sendersDictionary[email] {
+//                            self.sendersDictionary[email] = UIImage(data: data!)
+//                        }
+                        
                         DispatchQueue.main.async {
-                            
-                            self.sendersDictionary[email] = UIImage(data: data!)
+
+                            self.chatLog.reloadData()
                         }
                     } else {
                         self.showAlert(title: "Error", message: error!.localizedDescription)
