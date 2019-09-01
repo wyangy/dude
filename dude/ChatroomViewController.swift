@@ -126,11 +126,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        //        cell.textLabel?.text = posts[indexPath.row].message
-        //        cell.detailTextLabel?.text = posts[indexPath.row].senderEmail
-        
-        //        cell.imageView?.image = UIImage(named: "tiki.jpg")
-        
         let messageText = cell.viewWithTag(1) as! UILabel
         let senderEmail = cell.viewWithTag(2) as! UILabel
         let senderImage = cell.viewWithTag(3) as! UIImageView
@@ -143,9 +138,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             messageText.textAlignment = .right
             senderEmail.textAlignment = .right
             senderImage.image = nil
-            //            currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
-            
-//            currentUsersProfileImage.image = sendersDictionary[Auth.auth().currentUser!.email!]
             
             if let displayImage = sendersDictionary[posts[indexPath.row].senderEmail] {
                 currentUserImage.image = displayImage
@@ -153,32 +145,17 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 currentUserImage.image = UIImage(named: "buzzyBee.jpg")
             }
             
-//            if currentUsersProfileImage.image != nil {
-//                currentUsersProfileImage.image = sendersDictionary[posts[indexPath.row].senderEmail]
-//            } else {
-//                currentUsersProfileImage.image = UIImage(named: "buzzyBee.jpg")
-//            }
-            
         } else {
             messageText.textAlignment = .left
             senderEmail.textAlignment = .left
             currentUserImage.image = nil
-//            profileImage.image = UIImage(named: "tiki.jpg")
             
             if let displayImage = sendersDictionary[posts[indexPath.row].senderEmail] {
                 senderImage.image = displayImage
             } else {
                 senderImage.image = UIImage(named: "tiki.jpg")
             }
-            
-//            if profileImage.image != nil {
-//                profileImage.image = sendersDictionary[posts[indexPath.row].senderEmail]
-//            } else {
-//                profileImage.image = UIImage(named: "tiki.jpg")
-//            }
         }
-        
-        
         
         return cell
     }
@@ -195,19 +172,14 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
                         
-                        
                         self.sendersDictionary[email] = UIImage(data: data!)
                         print("Profile image downloaded for \(email)")
                         print(self.sendersDictionary)
                         
-//                        if  self.sendersDictionary[email] !=  self.sendersDictionary[email] {
-//                            self.sendersDictionary[email] = UIImage(data: data!)
-//                        }
-                        
                         DispatchQueue.main.async {
-
                             self.chatLog.reloadData()
                         }
+                        
                     } else {
                         self.showAlert(title: "Error", message: error!.localizedDescription)
                     }
