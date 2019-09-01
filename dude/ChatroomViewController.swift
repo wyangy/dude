@@ -20,7 +20,7 @@ struct Post {
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var posts = [Post]()
-    var sendersDictionary: [String : UIImage] = [:]
+    var senderDictionary: [String : UIImage] = [:]
     
     let databaseRef = Database.database().reference()
     
@@ -121,7 +121,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             email.textAlignment = .right
             senderImage.image = nil
             
-            if let displayImage = sendersDictionary[posts[indexPath.row].email] {
+            if let displayImage = senderDictionary[posts[indexPath.row].email] {
                 currentUserImage.image = displayImage
             } else {
                 currentUserImage.image = UIImage(named: "buzzyBee.jpg")
@@ -132,7 +132,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             email.textAlignment = .left
             currentUserImage.image = nil
             
-            if let displayImage = sendersDictionary[posts[indexPath.row].email] {
+            if let displayImage = senderDictionary[posts[indexPath.row].email] {
                 senderImage.image = displayImage
             } else {
                 senderImage.image = UIImage(named: "tiki.jpg")
@@ -154,10 +154,10 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
                         
-                        if self.sendersDictionary[email] == nil {
-                            self.sendersDictionary[email] = UIImage(data: data!)
+                        if self.senderDictionary[email] == nil {
+                            self.senderDictionary[email] = UIImage(data: data!)
                             print("Profile image downloaded for \(email)")
-//                            print(self.sendersDictionary)
+//                            print(self.senderDictionary)
                         }
 
                         DispatchQueue.main.async {
