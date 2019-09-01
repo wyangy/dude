@@ -13,7 +13,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 struct Post {
-    let senderEmail : String
+    let email : String
     let message : String
 }
 
@@ -68,35 +68,23 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         databaseRef.child("posts").observe(DataEventType.childAdded, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
-            let senderEmail = value?["senderEmail"] as! String
+            let email = value?["email"] as! String
             let message = value?["message"] as! String
             
-            self.posts.append(Post (senderEmail: senderEmail, message: message))
-            //            print(self.posts)
+            self.posts.append(Post (email: email, message: message))
+//            print(self.posts)
             
-            //            for index in 0..<self.posts.count {
-            ////                if self.senders[index].senderID == "" {
-            ////                    self.getProfileImage(senderID: senderID)
-            ////                }
-            //            }
+//            self.getProfileImage(email: email)
             
-           
-            if self.sendersDictionary[senderEmail] == nil {
-                self.getProfileImage(email: senderEmail)
-            }
-            
-            
-            
+//            if self.sendersDictionary[email] != UIImage(named: "buzzyBee.jpg") {
+                self.getProfileImage(email: email)
+//            }
             
             DispatchQueue.main.async {
-               
                 self.chatLog.reloadData()
                 let indexPath = NSIndexPath(item: self.posts.count - 1, section: 0)
                 self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             }
-            
-            
-            
             
         }) { (error) in
             self.showAlert(title: "Message could not be loaded", message: error.localizedDescription)
@@ -104,16 +92,14 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func saveMessage(message: String) {
-        
         databaseRef.child("posts").child(Date().description).setValue([
-            //            "senderID": Auth.auth().currentUser!.uid,
-            "senderEmail": Auth.auth().currentUser!.email!,
+            "email": Auth.auth().currentUser!.email!,
             "message": message,
         ]) { (error:Error?, databaseRef:DatabaseReference) in
             if let error = error {
                 self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
             } else {
-                print("Message saved successfully for senderEmail: \(Auth.auth().currentUser!.email!), message: \(message)")
+                print("Message saved successfully for email: \(Auth.auth().currentUser!.email!), message: \(message)")
             }
         }
     }
@@ -127,19 +113,19 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let messageText = cell.viewWithTag(1) as! UILabel
-        let senderEmail = cell.viewWithTag(2) as! UILabel
+        let email = cell.viewWithTag(2) as! UILabel
         let senderImage = cell.viewWithTag(3) as! UIImageView
         let currentUserImage = cell.viewWithTag(4) as! UIImageView
         
         messageText.text = posts[indexPath.row].message
-        senderEmail.text = posts[indexPath.row].senderEmail
+        email.text = posts[indexPath.row].email
         
-        if posts[indexPath.row].senderEmail == Auth.auth().currentUser!.email! {
+        if posts[indexPath.row].email == Auth.auth().currentUser!.email! {
             messageText.textAlignment = .right
-            senderEmail.textAlignment = .right
+            email.textAlignment = .right
             senderImage.image = nil
             
-            if let displayImage = sendersDictionary[posts[indexPath.row].senderEmail] {
+            if let displayImage = sendersDictionary[posts[indexPath.row].email] {
                 currentUserImage.image = displayImage
             } else {
                 currentUserImage.image = UIImage(named: "buzzyBee.jpg")
@@ -147,10 +133,10 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             
         } else {
             messageText.textAlignment = .left
-            senderEmail.textAlignment = .left
+            email.textAlignment = .left
             currentUserImage.image = nil
             
-            if let displayImage = sendersDictionary[posts[indexPath.row].senderEmail] {
+            if let displayImage = sendersDictionary[posts[indexPath.row].email] {
                 senderImage.image = displayImage
             } else {
                 senderImage.image = UIImage(named: "tiki.jpg")
@@ -162,6 +148,12 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func getProfileImage(email: String) {
         
+//        if self.sendersDictionary[email] != nil {
+//            print("OHMYGAHSTOP")
+//            return
+//        }
+        
+        
         let firestoreRef = Firestore.firestore().collection("users").document(email)
         
         firestoreRef.getDocument { (document, error) in
@@ -172,9 +164,16 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
                         
-                        self.sendersDictionary[email] = UIImage(data: data!)
-                        print("Profile image downloaded for \(email)")
-                        print(self.sendersDictionary)
+                        if self.sendersDictionary[email] == nil {
+                            self.sendersDictionary[email] = UIImage(data: data!)
+                            print("Profile image downloaded for \(email)")
+                            print(self.sendersDictionary)
+                        }
+                        
+                        
+//                        self.sendersDictionary[email] = UIImage(data: data!)
+//                        print("Profile image downloaded for \(email)")
+//                        print(self.sendersDictionary)
                         
                         DispatchQueue.main.async {
                             self.chatLog.reloadData()
@@ -194,9 +193,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.chatLog.rowHeight = 90
         
         loadMessage()
-        self.chatLog.rowHeight = 90
     }
     
 }
