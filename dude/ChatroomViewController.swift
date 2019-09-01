@@ -74,11 +74,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             self.posts.append(Post (email: email, message: message))
 //            print(self.posts)
             
-//            self.getProfileImage(email: email)
-            
-//            if self.sendersDictionary[email] != UIImage(named: "buzzyBee.jpg") {
                 self.getProfileImage(email: email)
-//            }
             
             DispatchQueue.main.async {
                 self.chatLog.reloadData()
@@ -148,12 +144,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func getProfileImage(email: String) {
         
-//        if self.sendersDictionary[email] != nil {
-//            print("OHMYGAHSTOP")
-//            return
-//        }
-        
-        
         let firestoreRef = Firestore.firestore().collection("users").document(email)
         
         firestoreRef.getDocument { (document, error) in
@@ -167,14 +157,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                         if self.sendersDictionary[email] == nil {
                             self.sendersDictionary[email] = UIImage(data: data!)
                             print("Profile image downloaded for \(email)")
-                            print(self.sendersDictionary)
+//                            print(self.sendersDictionary)
                         }
-                        
-                        
-//                        self.sendersDictionary[email] = UIImage(data: data!)
-//                        print("Profile image downloaded for \(email)")
-//                        print(self.sendersDictionary)
-                        
+
                         DispatchQueue.main.async {
                             self.chatLog.reloadData()
                         }
@@ -188,7 +173,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.showAlert(title: "Error retrieving user profile pic URL", message: error!.localizedDescription)
             }
         }
-        
     }
     
     override func viewDidLoad() {
