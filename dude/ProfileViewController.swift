@@ -50,21 +50,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 
                 self.saveUsersInfo(email: Auth.auth().currentUser!.email!, profilePicUrl: metadata!.downloadURL()!.absoluteString)
                 
-            } else {
-                self.showAlert(title: "Error", message: error!.localizedDescription)
-            }
-        }
-    }
-    
-    func saveUsersInfo(email: String, profilePicUrl: String) {
-        let database = Firestore.firestore()
-        
-        database.collection("users").document(email).setData([
-            "profilePicUrl": profilePicUrl,
-        ]) { (error) in
-            if error == nil {
-                print("User profile created for email: \(email), profilePicUrl: \(profilePicUrl)")
                 self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
+                
             } else {
                 self.showAlert(title: "Error", message: error!.localizedDescription)
             }
@@ -84,9 +71,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
-    
     
 }

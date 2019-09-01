@@ -23,9 +23,7 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
                 self.saveUsersInfo(email: Auth.auth().currentUser!.email!, profilePicUrl: "")
                 
                 self.performSegue(withIdentifier: "signUpToProfile", sender: self)
-                //                self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
-            }
-            else{
+            } else {
                 self.showAlert(title: "Error", message: error!.localizedDescription)
             }
         }
@@ -53,22 +51,6 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func saveUsersInfo(email: String, profilePicUrl: String) {
-        let database = Firestore.firestore()
-        
-        database.collection("users").document(email).setData([
-            "profilePicUrl": profilePicUrl,
-        ]) { (error) in
-            if error == nil {
-                print("User profile created for email: \(email), profilePicUrl: \(profilePicUrl)")
-                //                self.performSegue(withIdentifier: "signUpToProfile", sender: self)
-                //                self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
-            } else {
-                self.showAlert(title: "Error", message: error!.localizedDescription)
-            }
-        }
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -89,19 +71,23 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
+}
+
+extension UIViewController {
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    func saveUsersInfo(email: String, profilePicUrl: String) {
+        let database = Firestore.firestore()
+        
+        database.collection("users").document(email).setData([
+            "profilePicUrl": profilePicUrl,
+        ]) { (error) in
+            if error == nil {
+                print("User profile created for email: \(email), profilePicUrl: \(profilePicUrl)")
+            } else {
+                self.showAlert(title: "Error", message: error!.localizedDescription)
+            }
+        }
+    }
 }
