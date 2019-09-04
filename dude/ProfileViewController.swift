@@ -38,7 +38,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     func uploadPhotoToStorage() {
-        
         let data = photo.image!.jpegData(compressionQuality: 0.1)!
         
         let imagesRef = Storage.storage().reference().child("profilePics/" + "\(String(describing: Auth.auth().currentUser!.email))")
@@ -49,6 +48,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("User profile pic saved at \((metadata!.downloadURL())!)")
                 
                 self.saveUsersInfo(email: Auth.auth().currentUser!.email!, profilePicUrl: metadata!.downloadURL()!.absoluteString)
+                
+                senderDictionary[Auth.auth().currentUser!.email!] = UIImage(data: data)
                 
                 self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
                 

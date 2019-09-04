@@ -18,36 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Sz-HD5">
-                                <rect key="frame" x="160" y="356" width="56" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Sz-HD5">
+                                <rect key="frame" x="159.5" y="544" width="56" height="30"/>
                                 <state key="normal" title="SUBMIT"/>
                                 <connections>
                                     <action selector="submit:" destination="nZN-KX-8sE" eventType="touchUpInside" id="DGI-fT-SUC"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="buzzyBee" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-mG-7y5">
-                                <rect key="frame" x="72.5" y="92.5" width="230" height="230"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="517-cz-88M"/>
-                                    <constraint firstAttribute="height" constant="230" id="PI3-Uw-Ven"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-aQ-wBX">
-                                <rect key="frame" x="145" y="318" width="86" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-aQ-wBX">
+                                <rect key="frame" x="144.5" y="506" width="86" height="30"/>
                                 <state key="normal" title="select photo"/>
                                 <connections>
                                     <action selector="selectPhoto:" destination="nZN-KX-8sE" eventType="touchUpInside" id="wuV-OJ-oo9"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-mG-7y5">
+                                <rect key="frame" x="87.5" y="265.5" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3SV-nh-rYp"/>
+                                    <constraint firstAttribute="height" constant="200" id="Qqm-uO-oMU"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="7YV-WH-OAq"/>
-                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="top" secondItem="tXY-mG-7y5" secondAttribute="bottom" constant="28" id="OWW-5P-5T8"/>
-                            <constraint firstItem="O2i-Sz-HD5" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="QLf-jJ-Qsc"/>
-                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="centerY" secondItem="7a5-8R-jKr" secondAttribute="centerY" id="WTQ-Xn-hqN"/>
-                            <constraint firstItem="O2i-Sz-HD5" firstAttribute="top" secondItem="hZg-aQ-wBX" secondAttribute="bottom" constant="8" id="Z7d-cZ-Xs6"/>
-                            <constraint firstItem="tXY-mG-7y5" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="dDa-QI-oGh"/>
+                            <constraint firstItem="O2i-Sz-HD5" firstAttribute="top" secondItem="hZg-aQ-wBX" secondAttribute="bottom" constant="8" id="5xO-ig-5iW"/>
+                            <constraint firstItem="tXY-mG-7y5" firstAttribute="centerY" secondItem="7a5-8R-jKr" secondAttribute="centerY" id="UhT-zk-wfz"/>
+                            <constraint firstItem="O2i-Sz-HD5" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="ZFO-JQ-7KG"/>
+                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="top" secondItem="tXY-mG-7y5" secondAttribute="bottom" constant="40.5" id="eBV-cu-7Hl"/>
+                            <constraint firstItem="hZg-aQ-wBX" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="fXD-Gx-brz"/>
+                            <constraint firstItem="tXY-mG-7y5" firstAttribute="centerX" secondItem="7a5-8R-jKr" secondAttribute="centerX" id="fyV-dG-93k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7a5-8R-jKr"/>
                     </view>
@@ -375,11 +376,8 @@
             <point key="canvasLocation" x="1728.8" y="-1118.5907046476761"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="buzzyBee" width="512" height="512"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hig-tr-V44"/>
+        <segue reference="OmA-0y-Kn2"/>
         <segue reference="yWM-AD-ak9"/>
     </inferredMetricsTieBreakers>
 </document>

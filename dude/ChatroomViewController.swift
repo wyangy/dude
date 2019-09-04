@@ -17,11 +17,12 @@ struct Post {
     let message : String
 }
 
+var senderDictionary: [String : UIImage] = [:]
+
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var posts = [Post]()
-    var senderDictionary: [String : UIImage] = [:]
-        
+    
     @IBAction func logOut(_ sender: Any) {
         do {
             print("\(Auth.auth().currentUser!.email!) is logging out")
@@ -139,10 +140,10 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
                     if error == nil {
                         
-                        if self.senderDictionary[email] == nil {
-                            self.senderDictionary[email] = UIImage(data: data!)
+                        if senderDictionary[email] == nil {
+                            senderDictionary[email] = UIImage(data: data!)
                             print("Profile image downloaded for \(email)")
-//                            print(self.senderDictionary)
+//                            print(senderDictionary)
                         }
 
                         DispatchQueue.main.async {

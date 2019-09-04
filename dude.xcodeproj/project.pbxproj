@@ -102,8 +102,8 @@
 			children = (
 				A29537F42243D66000003DED /* dude.entitlements */,
 				A239A2D5222A02F8004227FA /* AppDelegate.swift */,
-				A29BB7A0232018FD00908505 /* Firebase.swift */,
 				A22D77C72319646E006AD111 /* AlertController.swift */,
+				A29BB7A0232018FD00908505 /* Firebase.swift */,
 				A297A101222A941800192642 /* SignUpLogInViewController.swift */,
 				A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */,
 				A24ACC03222F60660000CD2F /* ChatroomViewController.swift */,
