@@ -21,9 +21,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var posts = [Post]()
     var senderDictionary: [String : UIImage] = [:]
-    
-    let databaseRef = Database.database().reference()
-    
+        
     @IBAction func logOut(_ sender: Any) {
         do {
             print("\(Auth.auth().currentUser!.email!) is logging out")
@@ -84,19 +82,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }) { (error) in
             self.showAlert(title: "Message could not be loaded", message: error.localizedDescription)
-        }
-    }
-    
-    func saveMessage(message: String) {
-        databaseRef.child("posts").child(Date().description).setValue([
-            "email": Auth.auth().currentUser!.email!,
-            "message": message,
-        ]) { (error:Error?, databaseRef:DatabaseReference) in
-            if let error = error {
-                self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
-            } else {
-                print("Message saved successfully for email: \(Auth.auth().currentUser!.email!), message: \(message)")
-            }
         }
     }
     

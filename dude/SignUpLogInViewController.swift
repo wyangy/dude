@@ -75,19 +75,4 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
 }
 
-extension UIViewController {
-    
-    func saveUsersInfo(email: String, profilePicUrl: String) {
-        let database = Firestore.firestore()
-        
-        database.collection("users").document(email).setData([
-            "profilePicUrl": profilePicUrl,
-        ]) { (error) in
-            if error == nil {
-                print("User profile created for email: \(email), profilePicUrl: \(profilePicUrl)")
-            } else {
-                self.showAlert(title: "Error", message: error!.localizedDescription)
-            }
-        }
-    }
-}
+

@@ -18,6 +18,7 @@
 		A24ACC04222F60660000CD2F /* ChatroomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24ACC03222F60660000CD2F /* ChatroomViewController.swift */; };
 		A24ADD90222A09B80099554E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A24ADD8F222A09B80099554E /* GoogleService-Info.plist */; };
 		A297A102222A941800192642 /* SignUpLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A297A101222A941800192642 /* SignUpLogInViewController.swift */; };
+		A29BB7A1232018FD00908505 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29BB7A0232018FD00908505 /* Firebase.swift */; };
 		A2F84EF12244F27D0070ADF0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		A24ADD8F222A09B80099554E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A29537F42243D66000003DED /* dude.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dude.entitlements; sourceTree = "<group>"; };
 		A297A101222A941800192642 /* SignUpLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpLogInViewController.swift; sourceTree = "<group>"; };
+		A29BB7A0232018FD00908505 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B634FFEEF8274DB1D99F97F3 /* Pods-dudeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dudeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dudeTests/Pods-dudeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9E62B83FFCD3DB9781621BF /* Pods_dudeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dudeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +102,7 @@
 			children = (
 				A29537F42243D66000003DED /* dude.entitlements */,
 				A239A2D5222A02F8004227FA /* AppDelegate.swift */,
+				A29BB7A0232018FD00908505 /* Firebase.swift */,
 				A22D77C72319646E006AD111 /* AlertController.swift */,
 				A297A101222A941800192642 /* SignUpLogInViewController.swift */,
 				A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */,
@@ -329,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A29BB7A1232018FD00908505 /* Firebase.swift in Sources */,
 				A24ACC04222F60660000CD2F /* ChatroomViewController.swift in Sources */,
 				A22D77C82319646E006AD111 /* AlertController.swift in Sources */,
 				A297A102222A941800192642 /* SignUpLogInViewController.swift in Sources */,
