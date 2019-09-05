@@ -57,9 +57,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction func cancel(_ segue: UIStoryboardSegue) {
-    }
-    
     @IBAction func submit(_ sender: Any) {
         if photo.image != nil {
             uploadPhotoToStorage()
@@ -70,6 +67,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if senderDictionary[Auth.auth().currentUser!.email!] != UIImage(named: "buzzybee.jpg") {
+            self.photo.image = senderDictionary[Auth.auth().currentUser!.email!]
+        }
     }
     
 }
