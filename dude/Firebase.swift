@@ -40,4 +40,24 @@ extension UIViewController {
             }
         }
     }
+    
+    func checkUserProfileExists(email: String) {
+        let firestoreRef = Firestore.firestore().collection("users").document(email)
+        
+        firestoreRef.getDocument { (document, error) in
+            
+            if error != nil {
+                self.showAlert(title: "Error", message: error!.localizedDescription)
+                return
+            }
+            
+            if let document = document, document.exists {
+                print("User profile for \(email) exists, logging in...")
+            } else {
+                print("User profile for \(email) does not exist, creating user profile now...")
+                self.saveUsersInfo(email: email, profilePicUrl: "")
+            }
+        }
+    }
+    
 }

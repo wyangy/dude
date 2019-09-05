@@ -36,7 +36,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("finished picking")
     } // error appears after this function is called: [discovery] errors encountered while discovering extensions: Error Domain=PlugInKit Code=13 "query cancelled" UserInfo={NSLocalizedDescription=query cancelled
     
-    
     func uploadPhotoToStorage() {
         let data = photo.image!.jpegData(compressionQuality: 0.1)!
         
@@ -52,7 +51,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 senderDictionary[Auth.auth().currentUser!.email!] = UIImage(data: data)
                 
                 self.performSegue(withIdentifier: "signUpToChatroom", sender: self)
-                
             } else {
                 self.showAlert(title: "Error", message: error!.localizedDescription)
             }

@@ -33,6 +33,9 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
             if error == nil {
                 print("\(Auth.auth().currentUser!.email!) has logged in")
+                
+                self.checkUserProfileExists(email: Auth.auth().currentUser!.email!)
+                    
                 self.performSegue(withIdentifier: "logInSignUpToChatroom", sender: self)
             } else {
                 self.showAlert(title: "Error", message: error!.localizedDescription)
@@ -62,6 +65,8 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) { // why viewDidAppear instead of viewDidLoad?
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
+            self.checkUserProfileExists(email: Auth.auth().currentUser!.email!)
+            
             print("already logged in: \(Auth.auth().currentUser!.email!)")
             self.performSegue(withIdentifier: "alreadyLoggedIn", sender: nil)
         }
