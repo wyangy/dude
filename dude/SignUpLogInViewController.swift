@@ -42,7 +42,6 @@ class SignUpLogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func forgotPassword(_ sender: Any) {
         Auth.auth().sendPasswordReset(withEmail: self.email.text!) { (error) in
-            
             if error == nil {
                 self.showAlert(title: "Success!", message: "Password reset email sent to \(self.email.text!)")
             } else {

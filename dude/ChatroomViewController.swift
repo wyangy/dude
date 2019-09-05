@@ -135,6 +135,11 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         firestoreRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 
+                if (document.data()["profilePicUrl"])! as! String == "" {
+                    senderDictionary[email] = UIImage(named: "buzzybee.jpg")
+                    return
+                }
+                
                 let url = (document.data()["profilePicUrl"])! as! String
                 
                 URLSession.shared.dataTask(with: URL(string: url)!) { (data, response, error) in
