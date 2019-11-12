@@ -21,7 +21,7 @@ extension UIViewController {
             "profilePicUrl": profilePicUrl,
         ]) { (error) in
             if error == nil {
-                print("User profile created for email: \(email), profilePicUrl: \(profilePicUrl)")
+                print("User profile saved for email: \(email), profilePicUrl: \(profilePicUrl)")
             } else {
                 self.showAlert(title: "Error", message: error!.localizedDescription)
             }
