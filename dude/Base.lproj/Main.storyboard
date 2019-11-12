@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fst-Rh-bye">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fst-Rh-bye">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,25 +13,25 @@
             <objects>
                 <viewController id="nZN-KX-8sE" customClass="ProfileViewController" customModule="dude" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9rV-C8-Wqj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2i-Sz-HD5">
-                                <rect key="frame" x="159.5" y="544" width="56" height="30"/>
+                                <rect key="frame" x="159.5" y="530" width="56" height="30"/>
                                 <state key="normal" title="SUBMIT"/>
                                 <connections>
                                     <action selector="submit:" destination="nZN-KX-8sE" eventType="touchUpInside" id="DGI-fT-SUC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZg-aQ-wBX">
-                                <rect key="frame" x="144.5" y="506" width="86" height="30"/>
+                                <rect key="frame" x="144.5" y="492" width="86" height="30"/>
                                 <state key="normal" title="select photo"/>
                                 <connections>
                                     <action selector="selectPhoto:" destination="nZN-KX-8sE" eventType="touchUpInside" id="wuV-OJ-oo9"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-mG-7y5">
-                                <rect key="frame" x="87.5" y="265.5" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="251.5" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="3SV-nh-rYp"/>
@@ -52,9 +50,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7a5-8R-jKr"/>
                     </view>
+                    <navigationItem key="navigationItem" id="q8T-63-9GY"/>
                     <connections>
                         <outlet property="photo" destination="tXY-mG-7y5" id="HDZ-LN-hKA"/>
-                        <segue destination="RWX-uC-ff9" kind="presentation" identifier="signUpToChatroom" id="OmA-0y-Kn2"/>
+                        <segue destination="RWX-uC-ff9" kind="show" identifier="signUpToChatroom" id="OmA-0y-Kn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1B5-yY-3uX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -75,7 +74,6 @@
                                     <constraint firstAttribute="width" constant="164" id="PHN-oc-Vwl"/>
                                     <constraint firstAttribute="height" constant="30" id="ugR-fq-KDZ"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                 <connections>
@@ -88,14 +86,13 @@
                                     <constraint firstAttribute="height" constant="30" id="G0L-Pa-qSr"/>
                                     <constraint firstAttribute="width" constant="164" id="qnm-NO-mrr"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="fst-Rh-bye" id="P9w-Pw-qvN"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIe-HY-tDl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIe-HY-tDl">
                                 <rect key="frame" x="105" y="315" width="77" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="SIGN UP"/>
@@ -103,7 +100,7 @@
                                     <action selector="signUp:" destination="fst-Rh-bye" eventType="touchUpInside" id="O0u-m4-Rww"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob8-qr-fLh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob8-qr-fLh">
                                 <rect key="frame" x="205" y="315" width="64" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="LOG IN"/>
@@ -138,9 +135,9 @@
                     <connections>
                         <outlet property="email" destination="tBi-Ua-fpA" id="J9l-2L-iPz"/>
                         <outlet property="password" destination="om0-f4-X9R" id="a6d-UW-Gm9"/>
-                        <segue destination="RWX-uC-ff9" kind="presentation" identifier="alreadyLoggedIn" id="hig-tr-V44"/>
+                        <segue destination="RWX-uC-ff9" kind="show" identifier="alreadyLoggedIn" id="hig-tr-V44"/>
                         <segue destination="nZN-KX-8sE" kind="show" identifier="signUpToProfile" id="Dkb-jY-I1r"/>
-                        <segue destination="RWX-uC-ff9" kind="presentation" identifier="logInSignUpToChatroom" id="48s-Bj-bvq"/>
+                        <segue destination="RWX-uC-ff9" kind="show" identifier="logInSignUpToChatroom" id="48s-Bj-bvq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ld9-SP-fad" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,18 +149,18 @@
             <objects>
                 <viewController id="liL-Lr-hDS" customClass="ChatroomViewController" customModule="dude" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NPg-B1-7lI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3FV-lo-cB3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="393"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="381"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="oCR-3I-GRr">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oCR-3I-GRr" id="reg-C4-kaX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍺" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqw-lE-6Ld">
@@ -221,7 +218,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUk-sE-9eo">
-                                <rect key="frame" x="0.0" y="453" width="375" height="214"/>
+                                <rect key="frame" x="0.0" y="433" width="375" height="214"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9Y-Qt-GVF">
                                         <rect key="frame" x="46" y="82" width="50" height="50"/>
@@ -362,8 +359,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RWX-uC-ff9" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="LtU-NL-iQz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rcL-bm-rMD">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -377,7 +375,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OmA-0y-Kn2"/>
+        <segue reference="hig-tr-V44"/>
         <segue reference="yWM-AD-ak9"/>
     </inferredMetricsTieBreakers>
 </document>
