@@ -36,7 +36,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         UIApplication.shared.keyWindow?.rootViewController = initial
     }
     
-    @IBOutlet weak var chatLog: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
         print("Swiped Up: 🍺")
@@ -76,9 +76,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.getProfileImage(email: email)
             
             DispatchQueue.main.async {
-                self.chatLog.reloadData()
+                self.tableView.reloadData()
                 let indexPath = NSIndexPath(item: self.posts.count - 1, section: 0)
-                self.chatLog.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+                self.tableView.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.bottom, animated: true)
             }
             
         }) { (error) in
@@ -152,7 +152,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
                         }
 
                         DispatchQueue.main.async {
-                            self.chatLog.reloadData()
+                            self.tableView.reloadData()
                         }
                         
                     } else {
@@ -168,7 +168,7 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.chatLog.rowHeight = 90
+        self.tableView.rowHeight = 90
         
         loadMessage()
     }

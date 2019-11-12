@@ -331,7 +331,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatLog" destination="3FV-lo-cB3" id="UXR-3a-88r"/>
+                        <outlet property="tableView" destination="3FV-lo-cB3" id="rFa-13-jF0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjq-H4-evP" userLabel="First Responder" sceneMemberID="firstResponder"/>
