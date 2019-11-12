@@ -102,8 +102,8 @@
 			children = (
 				A29537F42243D66000003DED /* dude.entitlements */,
 				A239A2D5222A02F8004227FA /* AppDelegate.swift */,
-				A22D77C72319646E006AD111 /* AlertController.swift */,
 				A29BB7A0232018FD00908505 /* Firebase.swift */,
+				A22D77C72319646E006AD111 /* AlertController.swift */,
 				A297A101222A941800192642 /* SignUpLogInViewController.swift */,
 				A2F84EF02244F27D0070ADF0 /* ProfileViewController.swift */,
 				A24ACC03222F60660000CD2F /* ChatroomViewController.swift */,
@@ -198,6 +198,7 @@
 				TargetAttributes = {
 					A239A2D1222A02F8004227FA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -207,6 +208,7 @@
 					};
 					A239A2E5222A02F9004227FA = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A239A2D1222A02F8004227FA;
 					};
@@ -510,7 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudechatforbros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -530,7 +532,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudechatforbros;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -551,7 +553,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dude.app/dude";
 			};
@@ -573,7 +575,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyangy.dudeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/dude.app/dude";
 			};
