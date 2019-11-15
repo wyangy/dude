@@ -13,6 +13,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 struct Post {
+    let ref : DatabaseReference
     let email : String
     let message : String
 }
@@ -67,14 +68,17 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         databaseRef.child("posts").observe(DataEventType.childAdded, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
+            let ref = snapshot.ref
             let email = value?["email"] as! String
             let message = value?["message"] as! String
-            
-            self.posts.append(Post (email: email, message: message))
+                        
+            self.posts.append(Post (ref: ref, email: email, message: message))
 //            print(self.posts)
             
-                self.getProfileImage(email: email)
+            self.deleteMessage()
             
+            self.getProfileImage(email: email)
+                        
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 let indexPath = NSIndexPath(item: self.posts.count - 1, section: 0)
@@ -83,6 +87,28 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             
         }) { (error) in
             self.showAlert(title: "Message could not be loaded", message: error.localizedDescription)
+        }
+    }
+    
+    func saveMessage(message: String) {
+        databaseRef.child("posts").child(Date().description).setValue([
+            "email": Auth.auth().currentUser!.email!,
+            "message": message,
+        ]) { (error:Error?, databaseRef:DatabaseReference) in
+            if let error = error {
+                self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
+            } else {
+                print("Message saved successfully for email: \(Auth.auth().currentUser!.email!), message: \(message)")
+            }
+        }
+    }
+    
+    func deleteMessage() {
+        if posts.count>20 {
+            
+        posts[0].ref.removeValue()
+        posts.removeFirst()
+            print("message deleted: \(posts[0].ref)")
         }
     }
     

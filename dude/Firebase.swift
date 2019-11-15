@@ -28,19 +28,6 @@ extension UIViewController {
         }
     }
     
-    func saveMessage(message: String) {
-        databaseRef.child("posts").child(Date().description).setValue([
-            "email": Auth.auth().currentUser!.email!,
-            "message": message,
-        ]) { (error:Error?, databaseRef:DatabaseReference) in
-            if let error = error {
-                self.showAlert(title: "Message could not be saved", message: error.localizedDescription)
-            } else {
-                print("Message saved successfully for email: \(Auth.auth().currentUser!.email!), message: \(message)")
-            }
-        }
-    }
-    
     func checkUserProfileExists(email: String) {
         let firestoreRef = Firestore.firestore().collection("users").document(email)
         
