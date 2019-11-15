@@ -12,12 +12,6 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-struct Post {
-    let ref : DatabaseReference
-    let email : String
-    let message : String
-}
-
 var senderDictionary: [String : UIImage] = [:]
 
 class ChatroomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {

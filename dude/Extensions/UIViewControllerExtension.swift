@@ -28,23 +28,14 @@ extension UIViewController {
         }
     }
     
-    func checkUserProfileExists(email: String) {
-        let firestoreRef = Firestore.firestore().collection("users").document(email)
+    func showAlert(title: String, message: String) {
+        print("\(title): \(message)")
         
-        firestoreRef.getDocument { (document, error) in
-            
-            if error != nil {
-                self.showAlert(title: "Error", message: error!.localizedDescription)
-                return
-            }
-            
-            if let document = document, document.exists {
-                print("User profile for \(email) exists, logging in...")
-            } else {
-                print("User profile for \(email) does not exist, creating user profile now...")
-                self.saveUsersInfo(email: email, profilePicUrl: "")
-            }
-        }
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alertController.addAction(defaultAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }
