@@ -122,15 +122,11 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
         let email = cell.viewWithTag(5) as! UILabel
-        
-        
-//        messageText.text = posts[indexPath.row].message
         email.text = posts[indexPath.row].email
         
         if posts[indexPath.row].email == Auth.auth().currentUser!.email! {
             currentUserMessageText.text = posts[indexPath.row].message
             messageText.text = nil
-//            messageText.textAlignment = .right
             email.textAlignment = .right
             senderImage.image = nil
             
@@ -143,7 +139,6 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             currentUserMessageText.text = nil
             messageText.text = posts[indexPath.row].message
-//            messageText.textAlignment = .left
             email.textAlignment = .left
             currentUserImage.image = nil
             
