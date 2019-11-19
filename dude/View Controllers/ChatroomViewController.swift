@@ -114,16 +114,23 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let messageText = cell.viewWithTag(1) as! UILabel
-        let email = cell.viewWithTag(2) as! UILabel
-        let senderImage = cell.viewWithTag(3) as! UIImageView
-        let currentUserImage = cell.viewWithTag(4) as! UIImageView
+        let senderImage = cell.viewWithTag(1) as! UIImageView
+        let currentUserImage = cell.viewWithTag(2) as! UIImageView
         
-        messageText.text = posts[indexPath.row].message
+        var messageText = cell.viewWithTag(3) as! UILabel
+        var currentUserMessageText = cell.viewWithTag(4) as! UILabel
+        
+        
+        let email = cell.viewWithTag(5) as! UILabel
+        
+        
+//        messageText.text = posts[indexPath.row].message
         email.text = posts[indexPath.row].email
         
         if posts[indexPath.row].email == Auth.auth().currentUser!.email! {
-            messageText.textAlignment = .right
+            currentUserMessageText.text = posts[indexPath.row].message
+            messageText.text = nil
+//            messageText.textAlignment = .right
             email.textAlignment = .right
             senderImage.image = nil
             
@@ -134,7 +141,9 @@ class ChatroomViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
         } else {
-            messageText.textAlignment = .left
+            currentUserMessageText.text = nil
+            messageText.text = posts[indexPath.row].message
+//            messageText.textAlignment = .left
             email.textAlignment = .left
             currentUserImage.image = nil
             
