@@ -87,8 +87,11 @@
                                     <constraint firstAttribute="width" secondItem="LIe-HY-tDl" secondAttribute="height" multiplier="97:55" id="Gty-Z4-lW0"/>
                                     <constraint firstAttribute="height" constant="55" id="I2d-06-Yhe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="SIGN UP"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="SIGN UP">
+                                    <color key="titleColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="semibold"/>
+                                </state>
                                 <connections>
                                     <action selector="signUp:" destination="fst-Rh-bye" eventType="touchUpInside" id="O0u-m4-Rww"/>
                                 </connections>
@@ -100,8 +103,10 @@
                                     <constraint firstAttribute="height" constant="55" id="1Lg-IB-IHd"/>
                                     <constraint firstAttribute="width" secondItem="ob8-qr-fLh" secondAttribute="height" multiplier="84:55" id="7pX-7J-lDe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="LOG IN"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="LOG IN">
+                                    <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="logIn:" destination="fst-Rh-bye" eventType="touchUpInside" id="ch3-xu-VNB"/>
                                 </connections>
@@ -125,6 +130,7 @@
                                     <constraint firstAttribute="height" constant="30" id="VhX-Lu-aTH"/>
                                     <constraint firstAttribute="width" secondItem="0SB-h4-GeW" secondAttribute="height" multiplier="191:30" id="gMb-E1-JrI"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Forgot password?"/>
                                 <connections>
@@ -456,6 +462,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="48s-Bj-bvq"/>
+        <segue reference="OmA-0y-Kn2"/>
     </inferredMetricsTieBreakers>
 </document>
