@@ -14,19 +14,32 @@ import FirebaseStorage
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var photo: UIImageView!
-    
     var imagePicker = UIImagePickerController()
     
-    @IBAction func selectPhoto(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("select photo")
+    @IBOutlet weak var photo: UIImageView!
+    
+    @IBAction func edit(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Take photo", style: .default, handler: { (action: UIAlertAction) in
+            self.getImage(fromSourceType: .camera)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Choose photo", style: .default, handler: {(action: UIAlertAction) in
             
+            self.getImage(fromSourceType: .photoLibrary)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
+
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             imagePicker.delegate = self
-            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.sourceType = sourceType
             imagePicker.allowsEditing = false
-            
-            present(imagePicker, animated: true, completion: nil)
+            self.present(imagePicker, animated: true, completion: nil)
         }
     }
     

@@ -426,13 +426,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lot-8w-LZm">
-                                <rect key="frame" x="144.5" y="507" width="86" height="30"/>
-                                <state key="normal" title="select photo"/>
-                                <connections>
-                                    <action selector="selectPhoto:" destination="kwa-nq-d26" eventType="touchUpInside" id="eQg-lp-Bnb"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cl1-Wh-lcW">
                                 <rect key="frame" x="87.5" y="251.5" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -444,14 +437,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lot-8w-LZm" firstAttribute="centerX" secondItem="7aO-ia-fsD" secondAttribute="centerX" id="Add-1b-UqQ"/>
-                            <constraint firstItem="lot-8w-LZm" firstAttribute="top" secondItem="Cl1-Wh-lcW" secondAttribute="bottom" constant="55.5" id="BDt-14-zSp"/>
                             <constraint firstItem="Cl1-Wh-lcW" firstAttribute="centerX" secondItem="7aO-ia-fsD" secondAttribute="centerX" id="H0V-Od-oRV"/>
                             <constraint firstItem="Cl1-Wh-lcW" firstAttribute="centerY" secondItem="7aO-ia-fsD" secondAttribute="centerY" id="nQB-GM-X0G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7aO-ia-fsD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xsj-0O-Hx4"/>
+                    <navigationItem key="navigationItem" id="Xsj-0O-Hx4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="rfu-rH-RFa">
+                            <connections>
+                                <action selector="edit:" destination="kwa-nq-d26" id="VQv-cO-3Z5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="photo" destination="Cl1-Wh-lcW" id="qHS-Qr-AQs"/>
                     </connections>
@@ -462,6 +459,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OmA-0y-Kn2"/>
+        <segue reference="hig-tr-V44"/>
     </inferredMetricsTieBreakers>
 </document>
